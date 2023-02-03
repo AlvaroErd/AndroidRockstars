@@ -10,7 +10,6 @@ android {
     namespace 'com.mango.androidrockstars'
     compileSdk globalConfiguration["androidCompileSdkVersion"]
 
-
     defaultConfig {
         applicationId globalConfiguration["androidApplicationId"]
         minSdk globalConfiguration["androidMinSdkVersion"]
@@ -60,14 +59,14 @@ dependencies {
     implementation appDependencies.kotlin
     implementation appDependencies.coreKtx
     implementation appDependencies.lifecycle
-    implementation appDependencies.activityCompose
+    implementation appDependencies.compose
     implementation appDependencies.composeUi
     implementation appDependencies.composeUiToolingPreview
     implementation appDependencies.material
 
     testImplementation appTestDependencies.jUnit
 
-    androidTestImplementation appTestDependencies.androidTestJUnit
+    androidTestImplementation appTestDependencies.androidJUnit
     androidTestImplementation appTestDependencies.espresso
     androidTestImplementation appTestDependencies.composeUiTestJUnit
 
