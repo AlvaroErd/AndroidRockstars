@@ -63,6 +63,7 @@ dependencies {
     implementation appDependencies.composeUi
     implementation appDependencies.composeUiToolingPreview
     implementation appDependencies.material
+    implementation appDependencies.materialCompose
 
     testImplementation appTestDependencies.jUnit
 
