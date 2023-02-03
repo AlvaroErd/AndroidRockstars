@@ -4,15 +4,19 @@ plugins {
 }
 
 android {
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
     namespace 'com.mango.androidrockstars'
-    compileSdk 33
+    compileSdk globalConfiguration["androidCompileSdkVersion"]
+
 
     defaultConfig {
-        applicationId "com.mango.androidrockstars"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        applicationId globalConfiguration["androidApplicationId"]
+        minSdk globalConfiguration["androidMinSdkVersion"]
+        targetSdk globalConfiguration["androidTargetSdkVersion"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -27,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
     buildFeatures {
         compose true
@@ -48,16 +52,25 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.3.1'
-    implementation "androidx.compose.ui:ui:$compose_ui_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
-    implementation 'androidx.compose.material:material:1.2.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+    def appDependencies = rootProject.ext.appDependencies
+    def appTestDependencies = rootProject.ext.appTestDependencies
+
+    implementation project(':domain')
+
+    implementation appDependencies.kotlin
+    implementation appDependencies.coreKtx
+    implementation appDependencies.lifecycle
+    implementation appDependencies.activityCompose
+    implementation appDependencies.composeUi
+    implementation appDependencies.composeUiToolingPreview
+    implementation appDependencies.material
+
+    testImplementation appTestDependencies.jUnit
+
+    androidTestImplementation appTestDependencies.androidTestJUnit
+    androidTestImplementation appTestDependencies.espresso
+    androidTestImplementation appTestDependencies.composeUiTestJUnit
+
+    debugImplementation appTestDependencies.composeUiTooling
+    debugImplementation appTestDependencies.composeUiTestManifest
 }
