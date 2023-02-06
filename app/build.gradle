@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id "dagger.hilt.android.plugin"
 }
 
 android {
@@ -64,6 +66,15 @@ dependencies {
     implementation appDependencies.composeUiToolingPreview
     implementation appDependencies.material
     implementation appDependencies.materialCompose
+    implementation appDependencies.gson
+    implementation appDependencies.retrofit
+    implementation appDependencies.retrofitConverter
+    implementation appDependencies.pagingCompose
+    implementation appDependencies.okHttp
+    implementation appDependencies.coroutines
+    implementation appDependencies.hilt
+    kapt "com.google.dagger:hilt-compiler:${hiltVersion}"
+    implementation appDependencies.coil
 
     testImplementation appTestDependencies.jUnit
 
@@ -73,4 +84,8 @@ dependencies {
 
     debugImplementation appTestDependencies.composeUiTooling
     debugImplementation appTestDependencies.composeUiTestManifest
+}
+
+kapt {
+    correctErrorTypes = true
 }

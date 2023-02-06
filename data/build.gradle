@@ -43,6 +43,10 @@ dependencies {
     implementation dataDependencies.coreKtx
     implementation dataDependencies.appcompat
     implementation dataDependencies.material
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofitConverter
+    implementation dataDependencies.gson
+    implementation dataDependencies.okHttp
 
     testImplementation dataTestDependencies.jUnit
 
