@@ -77,9 +77,8 @@ dependencies {
     implementation appDependencies.coil
     implementation appDependencies.material3
     implementation appDependencies.material3Window
+    implementation appDependencies.accompanist
 
-    // system bars customization
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
 
     testImplementation appTestDependencies.jUnit
 
