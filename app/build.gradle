@@ -75,6 +75,11 @@ dependencies {
     implementation appDependencies.hilt
     kapt "com.google.dagger:hilt-compiler:${hiltVersion}"
     implementation appDependencies.coil
+    implementation appDependencies.material3
+    implementation appDependencies.material3Window
+
+    // system bars customization
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
 
     testImplementation appTestDependencies.jUnit
 

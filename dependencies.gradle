@@ -19,7 +19,8 @@ ext {
     hiltVersion = '2.44'                        // Hilt
     kaptVersion = '2.44'                        // Hilt Compiler
     coilVersion = '2.2.2'                       // Coil
-
+    material3Version = '1.0.1'                  // Material3
+    material3WindowVersion = '1.0.1'            // Material3 Windows size
     //testing
     jUnitVersion = "4.13.2"
     jUnitAndroidVersion = "1.1.5"
@@ -47,7 +48,9 @@ ext {
             coroutines             : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
             hilt                   : "com.google.dagger:hilt-android:${hiltVersion}",
             kapt                   : "com.google.dagger:hilt-android-compiler:${kaptVersion}",
-            coil                   : "io.coil-kt:coil:${coilVersion}"
+            coil                   : "io.coil-kt:coil:${coilVersion}",
+            material3              : "androidx.compose.material3:material3:${material3Version}",
+            material3Window        : "androidx.compose.material3:material3-window-size-class:${material3WindowVersion}",
 
 
     ]
