@@ -18,8 +18,22 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+//    // Api Config
+//    def localProperties = new Properties()
+//    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+//    buildConfigField "String", "API_KEY", localProperties['api_key']
+
+
     buildTypes {
+        debug {
+            buildConfigField "String", "API_BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "API_KEY", '"6f54b113f248b6b52c4cb077769b03e6"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
         release {
+            buildConfigField "String", "API_BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "API_KEY", '"6f54b113f248b6b52c4cb077769b03e6"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -42,6 +56,7 @@ dependencies {
 
     implementation dataDependencies.coreKtx
     implementation dataDependencies.appcompat
+    implementation dataDependencies.appcompatResources
     implementation dataDependencies.material
     implementation dataDependencies.retrofit
     implementation dataDependencies.retrofitConverter
