@@ -2,9 +2,9 @@ package com.mango.androidrockstars.presentation.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -15,19 +15,44 @@ import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 
 
 @Composable
-fun TopBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = stringResource(id = R.string.app_name),
-                color = MaterialTheme.colors.onBackground,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.fillMaxWidth(),
-                style = MaterialTheme.typography.h5
-            )
-        },
-        backgroundColor = MaterialTheme.colors.background
-    )
+fun TopBar(
+    title: String,
+    actionBack: (() -> Unit)? = null,
+) {
+    if (actionBack != null) {
+        TopAppBar(
+            title = {
+                Text(
+                    (title),
+                    color = MaterialTheme.colors.onBackground,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.fillMaxWidth(),
+                    style = MaterialTheme.typography.h5
+                )
+            },
+            backgroundColor = MaterialTheme.colors.background,
+            navigationIcon = {
+                IconButton(onClick = actionBack) {
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.back_button)
+                    )
+                }
+            })
+    } else {
+        TopAppBar(
+            title = {
+                Text(
+                    stringResource(id = R.string.app_name),
+                    color = MaterialTheme.colors.onBackground,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.fillMaxWidth(),
+                    style = MaterialTheme.typography.h5
+                )
+            },
+            backgroundColor = MaterialTheme.colors.background,
+        )
+    }
 }
 
 
@@ -36,6 +61,7 @@ fun TopBar() {
 @Composable
 fun TopBarBothThemesPreview() {
     AndroidRockStarsTheme {
-        TopBar()
+
+        TopBar(title = "Next destination with back icon")
     }
 }
