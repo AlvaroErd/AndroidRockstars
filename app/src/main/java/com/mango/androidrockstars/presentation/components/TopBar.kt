@@ -19,40 +19,30 @@ fun TopBar(
     title: String,
     actionBack: (() -> Unit)? = null,
 ) {
-    if (actionBack != null) {
-        TopAppBar(
-            title = {
-                Text(
-                    (title),
-                    color = MaterialTheme.colors.onBackground,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.h5
-                )
-            },
-            backgroundColor = MaterialTheme.colors.background,
-            navigationIcon = {
+
+    TopAppBar(
+        title = {
+            Text(
+                (title),
+                color = MaterialTheme.colors.onBackground,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.fillMaxWidth(),
+                style = MaterialTheme.typography.h5
+            )
+        },
+        backgroundColor = MaterialTheme.colors.background,
+        // Condicional dentro de navigation
+        navigationIcon = {
+            if (actionBack != null) {
                 IconButton(onClick = actionBack) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.back_button)
                     )
                 }
-            })
-    } else {
-        TopAppBar(
-            title = {
-                Text(
-                    stringResource(id = R.string.app_name),
-                    color = MaterialTheme.colors.onBackground,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.h5
-                )
-            },
-            backgroundColor = MaterialTheme.colors.background,
-        )
-    }
+            }
+        }
+    )
 }
 
 
@@ -62,6 +52,6 @@ fun TopBar(
 fun TopBarBothThemesPreview() {
     AndroidRockStarsTheme {
 
-        TopBar(title = "Next destination with back icon")
+        TopBar(title = "Next destination with back icon", { })
     }
 }
