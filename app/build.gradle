@@ -53,6 +53,8 @@ android {
 
 dependencies {
 
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
+    implementation project(path: ':data')
     def appDependencies = rootProject.ext.appDependencies
     def appTestDependencies = rootProject.ext.appTestDependencies
 
@@ -78,6 +80,8 @@ dependencies {
     implementation appDependencies.material3
     implementation appDependencies.material3Window
     implementation appDependencies.accompanist
+    implementation appDependencies.navigationCompose
+    implementation 'androidx.activity:activity-compose:1.6.1'
 
 
     testImplementation appTestDependencies.jUnit
