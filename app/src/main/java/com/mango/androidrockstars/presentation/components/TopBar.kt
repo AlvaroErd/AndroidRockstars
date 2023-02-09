@@ -31,7 +31,6 @@ fun TopBar(
             )
         },
         backgroundColor = MaterialTheme.colors.background,
-        // Condicional dentro de navigation
         navigationIcon = {
             if (actionBack != null) {
                 IconButton(onClick = actionBack) {

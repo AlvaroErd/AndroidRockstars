@@ -51,7 +51,7 @@ ext {
             coroutines             : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
             hilt                   : "com.google.dagger:hilt-android:${hiltVersion}",
             kapt                   : "com.google.dagger:hilt-android-compiler:${kaptVersion}",
-            coil                   : "io.coil-kt:coil:${coilVersion}",
+            coil                   : "io.coil-kt:coil-compose:${coilVersion}",
             material3              : "androidx.compose.material3:material3:${material3Version}",
             material3Window        : "androidx.compose.material3:material3-window-size-class:${material3WindowVersion}",
             accompanist            : "com.google.accompanist:accompanist-systemuicontroller:${accompanistVersion}",

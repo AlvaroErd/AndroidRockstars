@@ -23,3 +23,6 @@ val androidRockstarsDarkOnPrimary = Color(0xFFDDE6C)
 // Bar Colors
 val androidRockstarsDarkBlueStatus = Color(0xfFF212A33)
 val androidRockstarsLightGrayStatus = Color(0xFFDADFDF)
+
+// Rating Star
+val androidRockstarsStar = Color(0xFFFFD740)
