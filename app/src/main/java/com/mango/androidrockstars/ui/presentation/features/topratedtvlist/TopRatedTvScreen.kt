@@ -14,25 +14,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.mango.androidrockstars.R
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.ui.presentation.components.TopBar
-import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvViewModel.Companion.topRatedTvList
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.components.ListItemCard
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
 @Composable
-fun TopRatedTvListScreen(
-    navController: NavHostController = rememberNavController(),
-//                         topRatedViewModel: TopRatedTvViewModel
-) {
-//    val topRatedViewModel: TopRatedTvViewModel by viewModel()
-//    val topRatedViewModel: TopRatedTvViewModel by viewModels()
-
+fun TopRatedTvListScreen(viewModel: TopRatedTvViewModel) {
     Scaffold(
         topBar = {
             TopBar(
@@ -43,7 +34,7 @@ fun TopRatedTvListScreen(
         backgroundColor = Color.DarkGray
     ) {
         it
-        ListItemCard(topRatedTvList)
+        ListItemCard(viewModel.topRatedTvList)
     }
 }
 

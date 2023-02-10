@@ -20,9 +20,10 @@ class TopRatedTvViewModel(
         val topRated7 = TopRatedTvProperties("Peli 7", "", 4.3, 2342)
         val topRated8 = TopRatedTvProperties("Peli 8", "", 2.4, 6527)
 
-        val topRatedTvList = listOf<TopRatedTvProperties>(
-            topRated1, topRated2, topRated3, topRated4, topRated5, topRated6, topRated7, topRated8
-        )
     }
+
+    val topRatedTvList = listOf<TopRatedTvProperties>(
+        topRated1, topRated2, topRated3, topRated4, topRated5, topRated6, topRated7, topRated8
+    )
 }
 

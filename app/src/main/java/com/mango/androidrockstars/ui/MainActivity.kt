@@ -3,12 +3,14 @@ package com.mango.androidrockstars.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvViewModel
 import com.mango.androidrockstars.ui.presentation.navigation.NavGraph
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private lateinit var navController: NavHostController
+    val topRatedTvViewModel: TopRatedTvViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +30,7 @@ class MainActivity : ComponentActivity() {
                 )
                 {
                     navController = rememberNavController()
-                    NavGraph(navController = navController)
+                    NavGraph(navController = navController, topRatedViewModel = topRatedTvViewModel)
                 }
             }
         }
