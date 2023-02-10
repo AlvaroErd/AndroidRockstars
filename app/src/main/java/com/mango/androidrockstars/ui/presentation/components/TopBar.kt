@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.presentation.components
+package com.mango.androidrockstars.ui.presentation.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxWidth

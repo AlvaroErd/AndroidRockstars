@@ -53,12 +53,10 @@ android {
 
 dependencies {
 
-    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
-    implementation project(path: ':data')
+
     def appDependencies = rootProject.ext.appDependencies
     def appTestDependencies = rootProject.ext.appTestDependencies
 
-    implementation project(':domain')
 
     implementation appDependencies.kotlin
     implementation appDependencies.coreKtx
@@ -81,7 +79,11 @@ dependencies {
     implementation appDependencies.material3Window
     implementation appDependencies.accompanist
     implementation appDependencies.navigationCompose
+    implementation appDependencies.retrofit
+    implementation appDependencies.retrofitConverter
+    implementation appDependencies.okHttp
     implementation 'androidx.activity:activity-compose:1.6.1'
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
 
 
     testImplementation appTestDependencies.jUnit

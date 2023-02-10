@@ -1,4 +1,4 @@
-package com.mango.androidrockstars
+package com.mango.androidrockstars.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,7 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.mango.androidrockstars.presentation.navigation.NavGraph
+import com.mango.androidrockstars.ui.presentation.navigation.NavGraph
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -9,6 +9,9 @@ java {
 }
 
 dependencies {
+
+
+    implementation project(':data')
     def domainTestDependencies = rootProject.ext.domainTestDependencies
 
     testImplementation domainTestDependencies.jUnit

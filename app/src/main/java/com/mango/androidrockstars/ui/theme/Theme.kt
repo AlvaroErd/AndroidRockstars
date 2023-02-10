@@ -27,11 +27,11 @@ private val DarkColorPalette = darkColors(
     primary = androidRockstarsDarkOnSurface,
     onPrimary = androidRockstarsDarkPrimary,
     secondary = androidRockstarsDarkOnPrimary,
-)
+
+    )
 
 private val darkBlueStatus = androidRockstarsDarkBlueStatus
 private val lightGrayStatus = androidRockstarsLightGrayStatus
-private val star = androidRockstarsStar
 @Composable
 fun AndroidRockStarsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

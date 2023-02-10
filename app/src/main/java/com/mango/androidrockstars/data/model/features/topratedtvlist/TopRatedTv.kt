@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.model.features.topratedtvlist
+package com.mango.androidrockstars.data.model.features.topratedtvlist
 
 
 import com.google.gson.annotations.SerializedName
@@ -14,6 +14,14 @@ data class TopRatedTv(
     val totalResults: Int
 ) {
     data class Result(
+        @SerializedName("name")
+        val name: String,
+        @SerializedName("poster_path")
+        val posterPath: String,
+        @SerializedName("vote_average")
+        val voteAverage: Double,
+        @SerializedName("vote_count")
+        val voteCount: Int
 //        @SerializedName("backdrop_path")
 //        val backdropPath: String,
 //        @SerializedName("first_air_date")
@@ -22,8 +30,6 @@ data class TopRatedTv(
 //        val genreIds: List<Int>,
 //        @SerializedName("id")
 //        val id: Int,
-        @SerializedName("name")
-        val name: String,
 //        @SerializedName("origin_country")
 //        val originCountry: List<String>,
 //        @SerializedName("original_language")
@@ -34,12 +40,6 @@ data class TopRatedTv(
 //        val overview: String,
 //        @SerializedName("popularity")
 //        val popularity: Double,
-        @SerializedName("poster_path")
-        val posterPath: String,
-        @SerializedName("vote_average")
-        val voteAverage: Double,
-        @SerializedName("vote_count")
-        val voteCount: Int
     )
 }
 

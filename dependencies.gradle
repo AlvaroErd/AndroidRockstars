@@ -55,7 +55,12 @@ ext {
             material3              : "androidx.compose.material3:material3:${material3Version}",
             material3Window        : "androidx.compose.material3:material3-window-size-class:${material3WindowVersion}",
             accompanist            : "com.google.accompanist:accompanist-systemuicontroller:${accompanistVersion}",
-            navigationCompose      : "androidx.navigation:navigation-compose:${navigationComposeVersion}"
+            navigationCompose      : "androidx.navigation:navigation-compose:${navigationComposeVersion}",
+
+            // from data
+            retrofit               : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter      : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            okHttp                 : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
 
     ]
     appTestDependencies = [
@@ -80,9 +85,7 @@ ext {
             appcompatResources: "androidx.appcompat:appcompat:${appcompatResourcesVersion}",
             material          : "com.google.android.material:material:${materialVersion}",
             gson              : "com.google.code.gson:gson:${gsonVersion}",
-            retrofit          : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
-            retrofitConverter : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-            okHttp            : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+
     ]
 
     dataTestDependencies = [

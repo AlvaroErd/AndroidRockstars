@@ -1,10 +1,10 @@
-package com.mango.androidrockstars.presentation.navigation
+package com.mango.androidrockstars.ui.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.mango.androidrockstars.presentation.features.topratedtvlist.TopRatedTvScreen
+import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvListScreen
 
 @Composable
 fun NavGraph(navController: NavHostController) {
@@ -13,7 +13,7 @@ fun NavGraph(navController: NavHostController) {
         startDestination = Screen.Home.route
     ) {
         composable(route = Screen.Home.route) {
-            TopRatedTvScreen(navController = navController)
+            TopRatedTvListScreen(navController = navController)
         }
     }
 }

@@ -1,8 +1,7 @@
-package com.mango.androidrockstars.presentation.features.topratedtvlist.components
+package com.mango.androidrockstars.ui.presentation.features.topratedtvlist.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
@@ -20,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.model.features.topratedtvlist.TopRatedTv
+import com.mango.androidrockstars.data.model.features.topratedtvlist.TopRatedTv
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 
 @Composable
@@ -34,12 +33,12 @@ fun ListItemCard(
 ) {
     Column(
         modifier = Modifier
-            .background(MaterialTheme.colors.background).padding(bottom = 10.dp)
+            .padding(bottom = 10.dp)
     )
     {
         Column(
             modifier = Modifier
-                .fillMaxWidth(),
+//                .fillMaxWidth(),
         ) {
 //            AsyncImage(
 //                model = "https://loremflickr.com/400/400/cat?",
@@ -50,21 +49,28 @@ fun ListItemCard(
 //                contentScale = ContentScale.Crop,
 //                )
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
+//                painter = painterResource(id = R.drawable.ic_launcher_background),
+                painter = painterResource(id = R.drawable.wakanda),
                 contentDescription = null,
                 modifier = Modifier
-                    .fillMaxWidth().clip(shape = MaterialTheme.shapes.medium),
-                contentScale = ContentScale.Crop,
+//                    .size(width = 200.dp, height = 200.dp)
+                    .height(800.dp)
+                    .clip(shape = MaterialTheme.shapes.medium),
+                contentScale = ContentScale.FillHeight,
             )
             Text(
                 text = title,
                 fontWeight = FontWeight.Bold,
                 style = MaterialTheme.typography.h5,
-                modifier = Modifier.padding(top = 10.dp),
+                modifier = Modifier.padding(top = 7.dp),
+                color = MaterialTheme.colors.onPrimary
             )
-            Row(modifier = Modifier.fillMaxWidth()) {
+            Row(
+//                modifier = Modifier.fillMaxWidth()
+            ) {
                 Text(
-                    text = averageRate.toString()
+                    text = averageRate.toString(),
+                    color = MaterialTheme.colors.onPrimary
                 )
                 Icon(
                     Icons.Filled.Star,
@@ -72,7 +78,10 @@ fun ListItemCard(
                     modifier = Modifier.size(ButtonDefaults.IconSize),
                     tint = colorStar
                 )
-                Text(text = "of ${totalVotes.toString()} votes")
+                Text(
+                    text = "of ${totalVotes.toString()} votes",
+                    color = MaterialTheme.colors.onPrimary
+                )
             }
         }
     }

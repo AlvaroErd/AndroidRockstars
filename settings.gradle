@@ -14,5 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android Rock Stars"
 include ':app'
-include ':domain'
-include ':data'
