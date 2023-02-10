@@ -33,13 +33,9 @@ fun ListItemCard(
 ) {
     Column(
         modifier = Modifier
-            .padding(bottom = 10.dp)
-    )
-    {
-        Column(
-            modifier = Modifier
-//                .fillMaxWidth(),
-        ) {
+            .padding(bottom = 10.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
 //            AsyncImage(
 //                model = "https://loremflickr.com/400/400/cat?",
 //                contentDescription = null,
@@ -48,41 +44,39 @@ fun ListItemCard(
 //                    .size(180.dp),
 //                contentScale = ContentScale.Crop,
 //                )
-            Image(
+        Image(
 //                painter = painterResource(id = R.drawable.ic_launcher_background),
-                painter = painterResource(id = R.drawable.wakanda),
-                contentDescription = null,
-                modifier = Modifier
-//                    .size(width = 200.dp, height = 200.dp)
-                    .height(800.dp)
-                    .clip(shape = MaterialTheme.shapes.medium),
-                contentScale = ContentScale.FillHeight,
-            )
+            painter = painterResource(id = R.drawable.wakanda),
+            contentDescription = null,
+            modifier = Modifier
+                .height(200.dp)
+                .clip(shape = MaterialTheme.shapes.medium),
+            contentScale = ContentScale.FillHeight,
+        )
+        Text(
+            text = title,
+            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.h5,
+            modifier = Modifier.padding(top = 7.dp),
+            color = MaterialTheme.colors.onPrimary
+        )
+        Row(
+//                modifier = Modifier.fillMaxWidth()
+        ) {
             Text(
-                text = title,
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.h5,
-                modifier = Modifier.padding(top = 7.dp),
+                text = averageRate.toString(),
                 color = MaterialTheme.colors.onPrimary
             )
-            Row(
-//                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = averageRate.toString(),
-                    color = MaterialTheme.colors.onPrimary
-                )
-                Icon(
-                    Icons.Filled.Star,
-                    contentDescription = null,
-                    modifier = Modifier.size(ButtonDefaults.IconSize),
-                    tint = colorStar
-                )
-                Text(
-                    text = "of ${totalVotes.toString()} votes",
-                    color = MaterialTheme.colors.onPrimary
-                )
-            }
+            Icon(
+                Icons.Filled.Star,
+                contentDescription = null,
+                modifier = Modifier.size(ButtonDefaults.IconSize),
+                tint = colorStar
+            )
+            Text(
+                text = "of ${totalVotes.toString()} votes",
+                color = MaterialTheme.colors.onPrimary
+            )
         }
     }
 }

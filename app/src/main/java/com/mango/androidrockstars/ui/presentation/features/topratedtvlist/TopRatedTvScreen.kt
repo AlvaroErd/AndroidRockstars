@@ -17,16 +17,21 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.data.model.features.topratedtvlist.TopRatedTv
+import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.ui.presentation.components.TopBar
+import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvViewModel.Companion.topRatedTvList
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.components.ListItemCard
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
-
 @Composable
-fun TopRatedTvListScreen(navController: NavHostController = rememberNavController()) {
+fun TopRatedTvListScreen(
+    navController: NavHostController = rememberNavController(),
+//                         topRatedViewModel: TopRatedTvViewModel
+) {
+//    val topRatedViewModel: TopRatedTvViewModel by viewModel()
+//    val topRatedViewModel: TopRatedTvViewModel by viewModels()
 
     Scaffold(
         topBar = {
@@ -38,28 +43,32 @@ fun TopRatedTvListScreen(navController: NavHostController = rememberNavControlle
         backgroundColor = Color.DarkGray
     ) {
         it
+        ListItemCard(topRatedTvList)
     }
 }
-@Composable
-fun ListItemCard(listItemData : List<TopRatedTv.Result>) {
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(MaterialTheme.colors.background)
-                .padding(top = 10.dp),
-            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
-//            contentPadding = PaddingValues(12.dp),
-//            verticalArrangement = Arrangement.SpaceEvenly,
-//            horizontalArrangement = Arrangement.Center,
-//            horizontalArrangement = Arrangement.SpaceBetween,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
 
-            ) {
-            items(listItemData){
-                ListItemCard(image = "", title = it.name, totalVotes = it.voteCount, averageRate = it.voteAverage, actionClick = {})
-            }
+@Composable
+fun ListItemCard(listItemData: List<TopRatedTvProperties>) {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colors.background)
+            .padding(top = 10.dp),
+        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.Center
+
+    ) {
+        items(listItemData) {
+            ListItemCard(
+                image = "",
+                title = it.name,
+                totalVotes = it.voteCount,
+                averageRate = it.voteAverage,
+                actionClick = {})
         }
+    }
 }
 
 @Preview("Light Theme", showBackground = true)
@@ -67,11 +76,11 @@ fun ListItemCard(listItemData : List<TopRatedTv.Result>) {
 @Composable
 fun TopRatedTvListScreenBothThemesPreview() {
 
-    val list = mutableListOf<TopRatedTv.Result>()
+    val list = mutableListOf<TopRatedTvProperties>()
 
     (0..20).forEach {
         list.add(
-            TopRatedTv.Result(
+            TopRatedTvProperties(
                 posterPath = "",
                 name = "Tv Show " + "${Random.nextInt(1, 20)}",
                 voteCount = Random.nextInt(20, 700),
