@@ -37,7 +37,6 @@ fun TopRatedTvListScreen(viewModel: TopRatedTvViewModel) {
         ListItemCard(viewModel.topRatedTvList)
     }
 }
-
 @Composable
 fun ListItemCard(listItemData: List<TopRatedTvProperties>) {
     LazyVerticalGrid(
@@ -45,12 +44,13 @@ fun ListItemCard(listItemData: List<TopRatedTvProperties>) {
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colors.background)
-            .padding(top = 10.dp),
-        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.Center
+            .padding(top = 10.dp, end = 10.dp),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 5.dp),
+        horizontalArrangement = Arrangement.spacedBy(20.dp),
+        verticalArrangement = Arrangement.Center,
 
-    ) {
+
+        ) {
         items(listItemData) {
             ListItemCard(
                 image = "",

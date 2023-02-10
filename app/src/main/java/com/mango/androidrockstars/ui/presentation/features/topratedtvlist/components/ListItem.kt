@@ -2,7 +2,10 @@ package com.mango.androidrockstars.ui.presentation.features.topratedtvlist.compo
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -10,10 +13,10 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,11 +34,11 @@ fun ListItemCard(
     actionClick: (TopRatedTv.Result) -> Unit,
     colorStar: Color = Color(0xFFFBD309),
 ) {
-    Column(
-        modifier = Modifier
-            .padding(bottom = 10.dp),
-        verticalArrangement = Arrangement.Center
-    ) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            modifier = Modifier
+                .padding(bottom = 10.dp),
+        ) {
 //            AsyncImage(
 //                model = "https://loremflickr.com/400/400/cat?",
 //                contentDescription = null,
@@ -44,39 +47,40 @@ fun ListItemCard(
 //                    .size(180.dp),
 //                contentScale = ContentScale.Crop,
 //                )
-        Image(
+            Image(
 //                painter = painterResource(id = R.drawable.ic_launcher_background),
-            painter = painterResource(id = R.drawable.wakanda),
-            contentDescription = null,
-            modifier = Modifier
-                .height(200.dp)
-                .clip(shape = MaterialTheme.shapes.medium),
-            contentScale = ContentScale.FillHeight,
-        )
-        Text(
-            text = title,
-            fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.h5,
-            modifier = Modifier.padding(top = 7.dp),
-            color = MaterialTheme.colors.onPrimary
-        )
-        Row(
-//                modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(
-                text = averageRate.toString(),
-                color = MaterialTheme.colors.onPrimary
-            )
-            Icon(
-                Icons.Filled.Star,
+                painter = painterResource(id = R.drawable.wakanda),
                 contentDescription = null,
-                modifier = Modifier.size(ButtonDefaults.IconSize),
-                tint = colorStar
+                modifier = Modifier
+                    .clip(shape = MaterialTheme.shapes.medium),
+//            contentScale = ContentScale.FillHeight,
+                alignment = Alignment.Center,
             )
             Text(
-                text = "of ${totalVotes.toString()} votes",
+                text = title,
+                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.h5,
+                modifier = Modifier.padding(top = 7.dp),
                 color = MaterialTheme.colors.onPrimary
             )
+            Row(
+//                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = averageRate.toString(),
+                    color = MaterialTheme.colors.onPrimary
+                )
+                Icon(
+                    Icons.Filled.Star,
+                    contentDescription = null,
+                    modifier = Modifier.size(ButtonDefaults.IconSize),
+                    tint = colorStar
+                )
+                Text(
+                    text = "of ${totalVotes.toString()} votes",
+                    color = MaterialTheme.colors.onPrimary
+                )
+            }
         }
     }
 }

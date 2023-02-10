@@ -48,7 +48,6 @@ fun AndroidRockStarsTheme(
 //            else lightGrayStatus
 //        )
 //    }
-
     MaterialTheme(
         colors = colors,
         typography = Typography,
