@@ -1,5 +1,6 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResult
@@ -13,6 +14,8 @@ import kotlinx.coroutines.launch
 
 class TopRatedTvViewModel : ViewModel() {
     private val topRatedTvRepository: GetTopRatedTvUseCase = GetTopRatedTvUseCase()
+
+    val isLoading = mutableStateOf(false)
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

@@ -38,8 +38,18 @@ fun TopRatedTvListScreen(viewModel: TopRatedTvViewModel) {
         backgroundColor = Color.DarkGray
     ) {
         it
+        if (viewModel.isLoading.value) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                CircularProgressIndicator(
+                    modifier = Modifier.align(Alignment.Center),
+                    color = MaterialTheme.colors.onPrimary
+                )
+            }
+        } else {
 //        ListItemCard(viewModel.topRatedTvListMock)
-        ListItemCards(ratedTvList)
+            ListItemCards(ratedTvList)
+        }
+
     }
 }
 
