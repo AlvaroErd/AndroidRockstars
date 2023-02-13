@@ -69,7 +69,7 @@ dependencies {
     implementation appDependencies.gson
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverter
-    implementation appDependencies.pagingCompose
+//    implementation appDependencies.pagingCompose
     implementation appDependencies.okHttp
     implementation appDependencies.coroutines
     implementation appDependencies.hilt
@@ -86,7 +86,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
     implementation "androidx.fragment:fragment-ktx:1.5.5"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
-
+    def paging_version = "3.1.1"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    implementation "androidx.paging:paging-compose:1.0.0-alpha17"
 
     testImplementation appTestDependencies.jUnit
 

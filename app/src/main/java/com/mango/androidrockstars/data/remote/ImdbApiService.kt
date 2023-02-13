@@ -8,7 +8,7 @@ interface ImdbApiService {
 
     @GET("tv/top_rated")
     suspend fun getTopRatedTv(
-        @Query("api_key") apiKey: String, //pasar a okhttp ya que cada vez que se hace una llamada va a incluir el token
+        @Query("api_key") apiKey: String,
         @Query("page") page: Int = 1,
         @Query("language") language: String = "es"
     ): ApiResultList

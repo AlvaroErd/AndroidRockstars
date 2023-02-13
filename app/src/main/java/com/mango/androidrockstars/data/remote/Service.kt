@@ -5,7 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Service {
     companion object {
-        // Instancia de Retrofit
         private var retrofit: ImdbApiService? = null
         fun getInstance(): ImdbApiService {
             if (retrofit == null)
