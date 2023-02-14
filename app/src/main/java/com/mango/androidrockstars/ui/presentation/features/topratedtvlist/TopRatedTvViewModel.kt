@@ -32,6 +32,7 @@ class TopRatedTvViewModel : ViewModel() {
     val topRatedTvList: StateFlow<List<ApiResult>>
         get() = _topRatedTvList
 
+
     fun topRatedTvList() {
         viewModelScope.launch(Dispatchers.Default) {
             _topRatedTvList.update {

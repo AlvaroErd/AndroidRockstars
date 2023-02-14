@@ -1,6 +1,7 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
 
+import android.widget.Toast
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -19,10 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
 import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResult
@@ -64,13 +67,13 @@ fun ListItemCards(ratedTvList: List<ApiResult>) {
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colors.background)
-            .padding(top = 10.dp, end = 10.dp),
-        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 5.dp),
+            .padding(top = 10.dp, bottom = 10.dp),
+        contentPadding = PaddingValues(horizontal = 15.dp, vertical = 5.dp),
         horizontalArrangement = Arrangement.spacedBy(20.dp),
         verticalArrangement = Arrangement.Center,
     ) {
         items(ratedTvList) { item ->
-            ListItemCard(item)
+            ListItemCard(item, actionClick = { })
         }
     }
 }
@@ -79,34 +82,33 @@ fun ListItemCards(ratedTvList: List<ApiResult>) {
 @Composable
 fun ListItemCard(
     item: ApiResult,
+    actionClick: (ApiResult) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Column(
             modifier = Modifier
-//                .padding(bottom = 10.dp)
-                .clickable {
-                },
         ) {
             AsyncImage(
                 model = "https://image.tmdb.org/t/p/w500${item.posterPath}",
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .clip(MaterialTheme.shapes.medium)
-                    .aspectRatio(2 / 3f)
+                    .clip(MaterialTheme.shapes.large)
+                    .clickable {
+                        Toast
+                            .makeText(
+                                context,
+                                "You have been clicked ${item.name}",
+                                Toast.LENGTH_SHORT
+                            )
+                            .show()
+                    }
             )
-            Text(
-                text = item.name,
-                modifier = Modifier.padding(top = 5.dp),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colors.onPrimary
-            )
-            Row(
+            Column(
                 modifier = Modifier
                     .padding(bottom = 15.dp)
                     .animateContentSize(animationSpec = tween(100))
@@ -117,45 +119,67 @@ fun ListItemCard(
             ) {
                 if (showMore) {
                     Text(
-                        text = item.voteAverage.toString(),
+                        text = item.name,
+                        modifier = Modifier.padding(top = 5.dp),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
                         color = MaterialTheme.colors.onPrimary
                     )
-                    Icon(
-                        Icons.Filled.Star,
-                        contentDescription = null,
-                        modifier = Modifier.size(ButtonDefaults.IconSize),
-                        tint = colorStar
-                    )
-                    Text(
-                        text = "of ${item.voteCount.toString()} votes",
-                        color = MaterialTheme.colors.onPrimary,
-                    )
+                    Row() {
+                        Text(
+                            text = item.voteAverage.toString(),
+                            fontSize = 12.sp,
+                            color = MaterialTheme.colors.onPrimary
+                        )
+                        Icon(
+                            Icons.Filled.Star,
+                            contentDescription = null,
+                            modifier = Modifier.size(ButtonDefaults.IconSize),
+                            tint = colorStar
+                        )
+                        Text(
+                            text = "of ${item.voteCount.toString()} votes",
+                            fontSize = 12.sp,
+                            color = MaterialTheme.colors.onPrimary,
+
+                            )
+                    }
                 } else {
                     Text(
-                        text = item.voteAverage.toString(),
+                        text = item.name,
+                        modifier = Modifier.padding(top = 5.dp),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
                         color = MaterialTheme.colors.onPrimary
                     )
-                    Icon(
-                        Icons.Filled.Star,
-                        contentDescription = null,
-                        modifier = Modifier.size(ButtonDefaults.IconSize),
-                        tint = colorStar
-                    )
-                    Text(
-                        text = "of ${item.voteCount.toString()} votes",
-                        color = MaterialTheme.colors.onPrimary,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis
-                    )
+                    Row(
+                    ) {
+                        Text(
+                            text = item.voteAverage.toString(),
+                            color = MaterialTheme.colors.onPrimary,
+                            fontSize = 12.sp,
+                        )
+                        Icon(
+                            Icons.Filled.Star,
+                            contentDescription = null,
+                            modifier = Modifier.size(ButtonDefaults.IconSize),
+                            tint = colorStar
+                        )
+                        Text(
+                            text = "of ${item.voteCount.toString()} votes",
+                            color = MaterialTheme.colors.onPrimary,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            fontSize = 12.sp,
+                        )
+                    }
                 }
-
             }
         }
     }
 }
-
-
-
 
 
 //@Preview("Light Theme", showBackground = true)

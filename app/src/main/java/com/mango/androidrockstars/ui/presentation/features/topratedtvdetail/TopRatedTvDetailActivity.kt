@@ -10,3 +10,4 @@ class TopRatedTvDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_top_rated_tv_detail)
     }
 }
+

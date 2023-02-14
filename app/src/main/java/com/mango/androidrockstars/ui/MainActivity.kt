@@ -9,6 +9,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvListScreen
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvViewModel
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
@@ -28,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.surface,
                 )
                 {
-//                    navController = rememberNavController()
+                    navController = rememberNavController()
 //                    NavGraph(navController = navController, topRatedViewModel = topRatedTvViewModel)
                     TopRatedTvListScreen(topRatedTvViewModel)
                 }
