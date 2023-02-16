@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.data.repository
+package com.mango.androidrockstars.data.model.features.topratedtvlist.repository
 
 import com.mango.androidrockstars.data.remote.ImdbApiService
 

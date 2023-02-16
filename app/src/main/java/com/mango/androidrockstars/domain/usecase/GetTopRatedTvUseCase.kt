@@ -1,7 +1,7 @@
 package com.mango.androidrockstars.domain.usecase
 
 import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultList
-import com.mango.androidrockstars.data.repository.TopRatedTvRepositoryImpl
+import com.mango.androidrockstars.data.model.features.topratedtvlist.repository.TopRatedTvRepositoryImpl
 import com.mango.androidrockstars.domain.repository.TopRatedTvRepository
 
 class GetTopRatedTvUseCase {

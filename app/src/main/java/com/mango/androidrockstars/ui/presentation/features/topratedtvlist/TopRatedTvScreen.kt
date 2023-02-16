@@ -1,7 +1,6 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
 
-import android.widget.Toast
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -20,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -28,12 +26,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResult
+import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 
 @Composable
-fun TopRatedTvListScreen(viewModel: TopRatedTvViewModel) {
-    val ratedTvList by viewModel.topRatedTvList.collectAsState()
+fun TopRatedTvListScreen(
+    viewModelTvList: TopRatedTvViewModel,
+    topRatedTvViewModel: TopRatedTvViewModel
+) {
+    val ratedTvList by viewModelTvList.topRatedTvList.collectAsState()
 
     Scaffold(
         topBar = {
@@ -45,7 +46,7 @@ fun TopRatedTvListScreen(viewModel: TopRatedTvViewModel) {
         backgroundColor = Color.DarkGray
     ) {
         it
-        if (viewModel.isLoading.value) {
+        if (viewModelTvList.isLoading.value) {
             Box(modifier = Modifier.fillMaxSize()) {
                 CircularProgressIndicator(
                     modifier = Modifier.align(Alignment.Center),
@@ -61,7 +62,7 @@ fun TopRatedTvListScreen(viewModel: TopRatedTvViewModel) {
 }
 
 @Composable
-fun ListItemCards(ratedTvList: List<ApiResult>) {
+fun ListItemCards(ratedTvList: List<ApiResultDetail>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         modifier = Modifier
@@ -73,7 +74,7 @@ fun ListItemCards(ratedTvList: List<ApiResult>) {
         verticalArrangement = Arrangement.Center,
     ) {
         items(ratedTvList) { item ->
-            ListItemCard(item, actionClick = { })
+            ListItemCard(item, actionClick = { item })
         }
     }
 }
@@ -81,12 +82,12 @@ fun ListItemCards(ratedTvList: List<ApiResult>) {
 
 @Composable
 fun ListItemCard(
-    item: ApiResult,
-    actionClick: (ApiResult) -> Unit,
+    item: ApiResultDetail,
+    actionClick: (ApiResultDetail) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
-    val context = LocalContext.current
+//    val context = LocalContext.current
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Column(
@@ -94,18 +95,21 @@ fun ListItemCard(
         ) {
             AsyncImage(
                 model = "https://image.tmdb.org/t/p/w500${item.posterPath}",
-                contentDescription = null,
+                contentDescription = "Poster of ${item.posterPath}",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .clip(MaterialTheme.shapes.large)
+//                    .clickable {
+//                        Toast
+//                            .makeText(
+//                                context,
+//                                "You have been clicked ${item.name}",
+//                                Toast.LENGTH_SHORT
+//                            )
+//                            .show()
+//                    }
                     .clickable {
-                        Toast
-                            .makeText(
-                                context,
-                                "You have been clicked ${item.name}",
-                                Toast.LENGTH_SHORT
-                            )
-                            .show()
+                        actionClick(item)
                     }
             )
             Column(
@@ -133,7 +137,7 @@ fun ListItemCard(
                         )
                         Icon(
                             Icons.Filled.Star,
-                            contentDescription = null,
+                            contentDescription = "Stars",
                             modifier = Modifier.size(ButtonDefaults.IconSize),
                             tint = colorStar
                         )
@@ -163,7 +167,7 @@ fun ListItemCard(
                         )
                         Icon(
                             Icons.Filled.Star,
-                            contentDescription = null,
+                            contentDescription = "Stars",
                             modifier = Modifier.size(ButtonDefaults.IconSize),
                             tint = colorStar
                         )
@@ -181,39 +185,39 @@ fun ListItemCard(
     }
 }
 
+/*
+@Preview("Light Theme", showBackground = true)
+@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+@Composable
+fun TopRatedTvListScreenBothThemesPreview() {
 
-//@Preview("Light Theme", showBackground = true)
-//@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-//@Composable
-//fun TopRatedTvListScreenBothThemesPreview() {
-//
-//    val list = mutableListOf<TopRatedTvProperties>()
-//
-//    (0..20).forEach {
-//        list.add(
-//            TopRatedTvProperties(
-//                posterPath = "",
-//                name = "Tv Show " + "${Random.nextInt(1, 20)}",
-//                voteCount = Random.nextInt(20, 700),
-//                voteAverage = Random.nextDouble(0.1 * 100, 5.0 * 100).roundToInt() / 100.0,
-//            )
-//        )
-//    }
-//    AndroidRockStarsTheme {
-//        AndroidRockStarsTheme {
-//            Scaffold(
-//                topBar = {
-//                    TopBar(
-//                        title = stringResource(id = R.string.app_name)
-//                    )
-//                },
-//                modifier = Modifier.fillMaxSize(),
-//                backgroundColor = Color.DarkGray
-//            ) {
-//                it
-//                ListItemCard()
-//            }
-//        }
-//    }
-//}
-//
+    val list = mutableListOf<TopRatedTvProperties>()
+
+    (0..20).forEach {
+        list.add(
+            TopRatedTvProperties(
+                posterPath = "",
+                name = "Tv Show " + "${Random.nextInt(1, 20)}",
+                voteCount = Random.nextInt(20, 700),
+                voteAverage = Random.nextDouble(0.1 * 100, 5.0 * 100).roundToInt() / 100.0,
+            )
+        )
+    }
+    AndroidRockStarsTheme {
+        AndroidRockStarsTheme {
+            Scaffold(
+                topBar = {
+                    TopBar(
+                        title = stringResource(id = R.string.app_name)
+                    )
+                },
+                modifier = Modifier.fillMaxSize(),
+                backgroundColor = Color.DarkGray
+            ) {
+                it
+                ListItemCards(topRatedTvListMock)
+            }
+        }
+    }
+}*/
+

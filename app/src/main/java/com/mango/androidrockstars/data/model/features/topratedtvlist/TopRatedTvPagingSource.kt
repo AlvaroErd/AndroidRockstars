@@ -6,15 +6,15 @@ import com.mango.androidrockstars.data.remote.ImdbApiService
 
 class TopRatedTvPagingSource(
     private val topRatedTvApiService: ImdbApiService,
-) : PagingSource<Int, ApiResult>() {
-    override fun getRefreshKey(state: PagingState<Int, ApiResult>): Int? {
+) : PagingSource<Int, ApiResultDetail>() {
+    override fun getRefreshKey(state: PagingState<Int, ApiResultDetail>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ApiResult> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ApiResultDetail> {
         return try {
             val page = params.key ?: 1
             val response =
