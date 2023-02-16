@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResult
+import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
 import com.mango.androidrockstars.ui.presentation.features.topratedtvdetail.TopRatedTvDetailActivity
 import com.mango.androidrockstars.ui.presentation.features.topratedtvdetail.TopRatedTvDetailViewModel
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvListScreen
@@ -30,13 +30,13 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.surface,
                 )
                 {
-                    TopRatedTvListScreen(topRatedTvViewModel)
+                    TopRatedTvListScreen(topRatedTvViewModel, TopRatedTvViewModel())
                 }
             }
         }
     }
 
-    private fun navigationToDetail(item: ApiResult) {
+    private fun navigationToDetail(item: ApiResultDetail) {
         val intent = Intent(this, TopRatedTvDetailActivity::class.java)
         topRatedTvDetailViewModel.updateDetails(item)
     }
