@@ -3,7 +3,6 @@ package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.domain.usecase.GetTopRatedTvUseCase
 import kotlinx.coroutines.Dispatchers
@@ -14,38 +13,39 @@ import kotlinx.coroutines.launch
 
 
 class TopRatedTvViewModel : ViewModel() {
-    private val topRatedTvRepository: GetTopRatedTvUseCase = GetTopRatedTvUseCase()
+    private val topRatedTvUseCase: GetTopRatedTvUseCase = GetTopRatedTvUseCase()
 
     val isLoading = mutableStateOf(false)
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            this@TopRatedTvViewModel._topRatedTvList.update { topRatedTvRepository.getTopRatedTv().results }
+            this@TopRatedTvViewModel._topRatedTvList.update { topRatedTvUseCase.getTopRatedTv().results }
         }
     }
 
-    private val _topRatedTvList: MutableStateFlow<List<ApiResultDetail>> by lazy {
+    private val _topRatedTvList: MutableStateFlow<List<TopRatedTvProperties>> by lazy {
         MutableStateFlow(
             listOf()
         )
     }
 
-    val topRatedTvList: StateFlow<List<ApiResultDetail>>
+    val topRatedTvList: StateFlow<List<TopRatedTvProperties>>
         get() = _topRatedTvList
 
 
-    fun topRatedTvList() {
+/*    fun topRatedTvList() {
         viewModelScope.launch(Dispatchers.Default) {
             _topRatedTvList.update {
-                val response = topRatedTvRepository.getTopRatedTv()
+                val response = topRatedTvUseCase.getTopRatedTv()
                 response.results
             }
         }
 
-    }
+    }*/
 }
 
 
+/*
 //Mock
 val topRated1 = TopRatedTvProperties("Peli 1", "", 4.5, 834)
 val topRated2 = TopRatedTvProperties("Peli 2", "", 3.5, 342)
@@ -61,3 +61,4 @@ val topRatedTvListMock = listOf<TopRatedTvProperties>(
 )
 
 
+*/

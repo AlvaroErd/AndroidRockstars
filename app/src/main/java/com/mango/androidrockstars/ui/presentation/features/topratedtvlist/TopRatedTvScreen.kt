@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 
 @Composable
@@ -62,7 +62,7 @@ fun TopRatedTvListScreen(
 }
 
 @Composable
-fun ListItemCards(ratedTvList: List<ApiResultDetail>) {
+fun ListItemCards(ratedTvList: List<ApiDetailResponse>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         modifier = Modifier
@@ -82,8 +82,8 @@ fun ListItemCards(ratedTvList: List<ApiResultDetail>) {
 
 @Composable
 fun ListItemCard(
-    item: ApiResultDetail,
-    actionClick: (ApiResultDetail) -> Unit,
+    item: ApiDetailResponse,
+    actionClick: (ApiDetailResponse) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
@@ -94,7 +94,7 @@ fun ListItemCard(
             modifier = Modifier
         ) {
             AsyncImage(
-                model = "https://image.tmdb.org/t/p/w500${item.posterPath}",
+                model = item.posterPath,
                 contentDescription = "Poster of ${item.posterPath}",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

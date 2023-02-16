@@ -5,6 +5,7 @@ data class TopRatedTvProperties(
     val posterPath: String,
     val voteAverage: Double,
     val voteCount: Int,
+    val id: Int,
 )
 
 data class topRatedTvList(val result: List<TopRatedTvProperties> = listOf())

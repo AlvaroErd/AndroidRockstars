@@ -2,20 +2,20 @@ package com.mango.androidrockstars.data.datasource.features.topratedtvlist.pagin
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
 import com.mango.androidrockstars.data.remote.ImdbApiService
 
 class TopRatedTvPagingSource(
     private val topRatedTvApiService: ImdbApiService,
-) : PagingSource<Int, ApiResultDetail>() {
-    override fun getRefreshKey(state: PagingState<Int, ApiResultDetail>): Int? {
+) : PagingSource<Int, ApiDetailResponse>() {
+    override fun getRefreshKey(state: PagingState<Int, ApiDetailResponse>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                 ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ApiResultDetail> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ApiDetailResponse> {
         return try {
             val page = params.key ?: 1
             val response =
