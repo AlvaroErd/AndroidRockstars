@@ -1,6 +1,6 @@
 package com.mango.androidrockstars.domain.repository
 
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
 
 interface TopRatedTvDetailRepository {
     suspend fun getTopRatedTvDetail(): ApiResultDetail

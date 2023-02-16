@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 
 @Composable

@@ -1,8 +1,8 @@
 package com.mango.androidrockstars.data.remote
 
 import com.mango.androidrockstars.BuildConfig
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultList
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiResultList
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

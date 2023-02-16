@@ -1,7 +1,7 @@
-package com.mango.androidrockstars.data.model.features.topratedtvlist.repository
+package com.mango.androidrockstars.data.repository
 
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
-import com.mango.androidrockstars.data.remote.RemoteTopRatedTvDetailDataSource
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
+import com.mango.androidrockstars.data.source.RemoteTopRatedTvDetailDataSource
 import com.mango.androidrockstars.domain.repository.TopRatedTvDetailRepository
 
 class TopRatedTvDetailRepositoryImpl : TopRatedTvDetailRepository {

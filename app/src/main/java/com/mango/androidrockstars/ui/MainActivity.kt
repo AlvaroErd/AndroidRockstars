@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
 import com.mango.androidrockstars.ui.presentation.features.topratedtvdetail.TopRatedTvDetailActivity
 import com.mango.androidrockstars.ui.presentation.features.topratedtvdetail.TopRatedTvDetailViewModel
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvListScreen

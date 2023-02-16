@@ -1,7 +1,7 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvdetail
 
 import androidx.lifecycle.ViewModel
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

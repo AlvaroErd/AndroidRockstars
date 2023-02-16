@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.data.model.features.topratedtvlist
+package com.mango.androidrockstars.data.datasource.features.toprateddetail.model
 
 import com.google.gson.annotations.SerializedName
 

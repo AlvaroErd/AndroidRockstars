@@ -1,7 +1,8 @@
-package com.mango.androidrockstars.data.model.features.topratedtvlist
+package com.mango.androidrockstars.data.datasource.features.topratedtvlist.pagination
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
 import com.mango.androidrockstars.data.remote.ImdbApiService
 
 class TopRatedTvPagingSource(

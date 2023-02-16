@@ -3,7 +3,7 @@ package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mango.androidrockstars.data.model.features.topratedtvlist.ApiResultDetail
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiResultDetail
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.domain.usecase.GetTopRatedTvUseCase
 import kotlinx.coroutines.Dispatchers
