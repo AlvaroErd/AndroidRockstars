@@ -7,5 +7,5 @@ class RemoteTopRatedTvDetailDataSource {
 
 
     suspend fun getTopRatedTvDetail(): ApiResultDetail =
-        imdbApiService.getTopRatedTvDetail(0, "6f54b113f248b6b52c4cb077769b03e6", "en-US")
+        imdbApiService.getTopRatedTvDetail(0, "", "en-US")
 }
