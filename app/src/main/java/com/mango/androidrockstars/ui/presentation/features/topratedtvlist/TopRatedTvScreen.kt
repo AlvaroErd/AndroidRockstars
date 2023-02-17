@@ -26,13 +26,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
+import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 
 @Composable
 fun TopRatedTvListScreen(
     viewModelTvList: TopRatedTvViewModel,
-    topRatedTvViewModel: TopRatedTvViewModel
 ) {
     val ratedTvList by viewModelTvList.topRatedTvList.collectAsState()
 
@@ -42,7 +41,9 @@ fun TopRatedTvListScreen(
                 title = stringResource(id = R.string.app_name)
             )
         },
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(all = 0.dp),
         backgroundColor = Color.DarkGray
     ) {
         it
@@ -54,15 +55,14 @@ fun TopRatedTvListScreen(
                 )
             }
         } else {
-//        ListItemCard(viewModel.topRatedTvListMock)
-            ListItemCards(ratedTvList)
+//        ListItemCard(topRatedTvListMock)
+            ListCards(ratedTvList)
         }
-
     }
 }
 
 @Composable
-fun ListItemCards(ratedTvList: List<ApiDetailResponse>) {
+fun ListCards(topRatedTvList: List<TopRatedTvProperties>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         modifier = Modifier
@@ -73,8 +73,11 @@ fun ListItemCards(ratedTvList: List<ApiDetailResponse>) {
         horizontalArrangement = Arrangement.spacedBy(20.dp),
         verticalArrangement = Arrangement.Center,
     ) {
-        items(ratedTvList) { item ->
-            ListItemCard(item, actionClick = { item })
+        items(topRatedTvList) { item ->
+            ListItemCard(
+                item,
+//                actionClick = { item }
+            )
         }
     }
 }
@@ -82,8 +85,8 @@ fun ListItemCards(ratedTvList: List<ApiDetailResponse>) {
 
 @Composable
 fun ListItemCard(
-    item: ApiDetailResponse,
-    actionClick: (ApiDetailResponse) -> Unit,
+    item: TopRatedTvProperties,
+//    actionClick: (topRatedTvList) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
@@ -108,9 +111,9 @@ fun ListItemCard(
 //                            )
 //                            .show()
 //                    }
-                    .clickable {
-                        actionClick(item)
-                    }
+//                    .clickable {
+//                        actionClick(item)
+//                    }
             )
             Column(
                 modifier = Modifier
@@ -190,19 +193,22 @@ fun ListItemCard(
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 fun TopRatedTvListScreenBothThemesPreview() {
-
-    val list = mutableListOf<TopRatedTvProperties>()
+*/
+/*
+    val list = mutableListOf<ApiDetailResponse>()
 
     (0..20).forEach {
         list.add(
-            TopRatedTvProperties(
+            ApiDetailResponse(
                 posterPath = "",
                 name = "Tv Show " + "${Random.nextInt(1, 20)}",
                 voteCount = Random.nextInt(20, 700),
                 voteAverage = Random.nextDouble(0.1 * 100, 5.0 * 100).roundToInt() / 100.0,
             )
         )
-    }
+    }*//*
+
+
     AndroidRockStarsTheme {
         AndroidRockStarsTheme {
             Scaffold(
@@ -215,9 +221,8 @@ fun TopRatedTvListScreenBothThemesPreview() {
                 backgroundColor = Color.DarkGray
             ) {
                 it
-                ListItemCards(topRatedTvListMock)
+                ListCards(topRatedTvListMock)
             }
         }
     }
 }*/
-

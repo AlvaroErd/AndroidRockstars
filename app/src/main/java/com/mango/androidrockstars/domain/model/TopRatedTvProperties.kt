@@ -7,5 +7,3 @@ data class TopRatedTvProperties(
     val voteCount: Int,
     val id: Int,
 )
-
-data class topRatedTvList(val result: List<TopRatedTvProperties> = listOf())

@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.surface,
                 )
                 {
-                    TopRatedTvListScreen(topRatedTvViewModel, TopRatedTvViewModel())
+                    TopRatedTvListScreen(topRatedTvViewModel)
                 }
             }
         }
