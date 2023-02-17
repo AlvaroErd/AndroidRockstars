@@ -14,8 +14,6 @@ private val LightColorPalette = lightColors(
     primary = androidRockstarsLightOnSurface,
     onPrimary = androidRockstarsLightPrimary,
     secondary = androidRockstarsLightOnPrimary,
-
-
     )
 
 private val DarkColorPalette = darkColors(
@@ -25,7 +23,6 @@ private val DarkColorPalette = darkColors(
     primary = androidRockstarsDarkOnSurface,
     onPrimary = androidRockstarsDarkPrimary,
     secondary = androidRockstarsDarkOnPrimary,
-
     )
 
 private val darkBlueStatus = androidRockstarsDarkBlueStatus

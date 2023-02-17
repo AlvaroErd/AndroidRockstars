@@ -1,6 +1,5 @@
 package com.mango.androidrockstars.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,8 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
-import com.mango.androidrockstars.ui.presentation.features.topratedtvdetail.TopRatedTvDetailActivity
 import com.mango.androidrockstars.ui.presentation.features.topratedtvdetail.TopRatedTvDetailViewModel
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvListScreen
 import com.mango.androidrockstars.ui.presentation.features.topratedtvlist.TopRatedTvViewModel
@@ -36,8 +33,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun navigationToDetail(item: ApiDetailResponse) {
-        val intent = Intent(this, TopRatedTvDetailActivity::class.java)
-        topRatedTvDetailViewModel.updateDetails(item)
-    }
 }

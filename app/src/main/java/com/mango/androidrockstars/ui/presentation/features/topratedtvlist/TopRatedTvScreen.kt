@@ -1,6 +1,7 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
 
+import android.content.res.Configuration
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -22,12 +23,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.ui.presentation.components.TopBar
+import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 
 @Composable
 fun TopRatedTvListScreen(
@@ -102,18 +105,18 @@ fun ListItemCard(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .clip(MaterialTheme.shapes.large)
-//                    .clickable {
-//                        Toast
-//                            .makeText(
-//                                context,
-//                                "You have been clicked ${item.name}",
-//                                Toast.LENGTH_SHORT
-//                            )
-//                            .show()
-//                    }
-//                    .clickable {
-//                        actionClick(item)
-//                    }
+/*                    .clickable {
+                        Toast
+                            .makeText(
+                                context,
+                                "You have been clicked ${item.name}",
+                                Toast.LENGTH_SHORT
+                            )
+                            .show()
+                    }
+                    .clickable {
+                        actionClick(item)
+                    }*/
             )
             Column(
                 modifier = Modifier
@@ -188,27 +191,10 @@ fun ListItemCard(
     }
 }
 
-/*
 @Preview("Light Theme", showBackground = true)
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 fun TopRatedTvListScreenBothThemesPreview() {
-*/
-/*
-    val list = mutableListOf<ApiDetailResponse>()
-
-    (0..20).forEach {
-        list.add(
-            ApiDetailResponse(
-                posterPath = "",
-                name = "Tv Show " + "${Random.nextInt(1, 20)}",
-                voteCount = Random.nextInt(20, 700),
-                voteAverage = Random.nextDouble(0.1 * 100, 5.0 * 100).roundToInt() / 100.0,
-            )
-        )
-    }*//*
-
-
     AndroidRockStarsTheme {
         AndroidRockStarsTheme {
             Scaffold(
@@ -225,4 +211,29 @@ fun TopRatedTvListScreenBothThemesPreview() {
             }
         }
     }
-}*/
+}
+
+/*
+Como con Coil y Jetpack no se pueden mostrar imagenes en la preview, lo que podemos hacer es mostrar
+ un placeholder con una imagen de nuestro repositorio, asi podemos previsualizar la card completa.
+
+.aspectRatio(2 / 3f),
+placeholder = painterResource(R.drawable.wakanda),*/
+
+
+/*
+Otra manera de crear un mock con datos aleatorios
+
+    val list = mutableListOf<ApiDetailResponse>()
+
+    (0..20).forEach {
+        list.add(
+            ApiDetailResponse(
+                posterPath = "",
+                name = "Tv Show " + "${Random.nextInt(1, 20)}",
+                voteCount = Random.nextInt(20, 700),
+                voteAverage = Random.nextDouble(0.1 * 100, 5.0 * 100).roundToInt() / 100.0,
+            )
+        )
+    }
+*/
