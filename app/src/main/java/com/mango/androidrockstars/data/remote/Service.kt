@@ -1,5 +1,6 @@
 package com.mango.androidrockstars.data.remote
 
+import com.mango.androidrockstars.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -9,10 +10,9 @@ class Service {
         fun getInstance(): ImdbApiService {
             if (retrofit == null)
                 retrofit = Retrofit.Builder()
-                    .baseUrl("https://api.themoviedb.org/3/")
+                    .baseUrl(BuildConfig.API_KEY)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build().create(ImdbApiService::class.java)
-
             return retrofit!!
         }
     }
