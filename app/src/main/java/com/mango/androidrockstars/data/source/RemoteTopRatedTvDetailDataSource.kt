@@ -1,5 +1,6 @@
 package com.mango.androidrockstars.data.source
 
+import com.mango.androidrockstars.BuildConfig
 import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
 import com.mango.androidrockstars.data.remote.ImdbApiService
 import com.mango.androidrockstars.data.remote.Service
@@ -9,5 +10,5 @@ class RemoteTopRatedTvDetailDataSource {
 
 
     suspend fun getTopRatedTvDetail(): ApiDetailResponse =
-        imdbApiService.getTopRatedTvDetail(0, "", "en-US")
+        imdbApiService.getTopRatedTvDetail(0, "${BuildConfig.API_KEY}", "en-US")
 }

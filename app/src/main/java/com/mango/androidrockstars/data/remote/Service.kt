@@ -10,7 +10,7 @@ class Service {
         fun getInstance(): ImdbApiService {
             if (retrofit == null)
                 retrofit = Retrofit.Builder()
-                    .baseUrl(BuildConfig.API_KEY)
+                    .baseUrl(BuildConfig.API_BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build().create(ImdbApiService::class.java)
             return retrofit!!

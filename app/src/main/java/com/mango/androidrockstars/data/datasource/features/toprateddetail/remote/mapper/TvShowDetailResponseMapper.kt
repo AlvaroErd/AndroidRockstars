@@ -10,7 +10,7 @@ private fun tvShowDetailResponseMapper(apiDetail: ApiDetailResponse): TvShowDeta
         name = apiDetail.name,
         voteCount = apiDetail.voteCount,
         voteAverage = apiDetail.voteAverage,
-        first_air_date = apiDetail.release_date,
+        first_air_date = apiDetail.first_air_date,
         overview = apiDetail.overview,
         original_language = apiDetail.original_language,
     )

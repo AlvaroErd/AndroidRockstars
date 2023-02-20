@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.data.datasource.features.topratedtvlist.pagination
+package com.mango.androidrockstars.data.remote.pagination
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
