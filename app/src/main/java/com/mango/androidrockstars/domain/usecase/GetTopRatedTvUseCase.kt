@@ -7,6 +7,5 @@ import com.mango.androidrockstars.domain.repository.TopRatedTvRepository
 class GetTopRatedTvUseCase {
     private val topRepository: TopRatedTvRepository = TopRatedTvRepositoryListImpl()
 
-    /*Todo Mirar alternativas implementacion de repositorio*/
     suspend fun getTopRatedTv(): TopRatedTvPage = topRepository.getTopRatedTv()
 }

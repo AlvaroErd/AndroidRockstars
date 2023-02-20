@@ -1,7 +1,6 @@
 package com.mango.androidrockstars.data.datasource.features.topratedtvlist.model
 
 import com.google.gson.annotations.SerializedName
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
 
 data class ApiListResponse(
     @SerializedName("page") val page: Int = 0,

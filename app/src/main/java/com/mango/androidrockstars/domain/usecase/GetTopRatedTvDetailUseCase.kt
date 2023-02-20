@@ -6,5 +6,6 @@ import com.mango.androidrockstars.domain.repository.TopRatedTvDetailRepository
 
 class GetTopRatedTvDetailUseCase {
     private val topDetailRepository: TopRatedTvDetailRepository = TopRatedTvDetailRepositoryImpl()
-    suspend fun getTopRatedTvDetail(): TvShowDetail = topDetailRepository.getTopRatedTvDetail()
+    suspend fun getTopRatedTvDetail(tvId: Int): TvShowDetail =
+        topDetailRepository.getTopRatedTvDetail(tvId)
 }

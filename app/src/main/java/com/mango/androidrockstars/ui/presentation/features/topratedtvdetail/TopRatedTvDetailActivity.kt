@@ -9,6 +9,5 @@ class TopRatedTvDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top_rated_tv_detail)
     }
-
 }
 

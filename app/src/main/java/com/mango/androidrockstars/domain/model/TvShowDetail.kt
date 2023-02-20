@@ -1,6 +1,5 @@
 package com.mango.androidrockstars.domain.model
 
-
 data class TvShowDetail(
     val name: String = "",
     val posterPath: String = "",

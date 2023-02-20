@@ -33,4 +33,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun launchDetail() {
+
+    }
 }
+

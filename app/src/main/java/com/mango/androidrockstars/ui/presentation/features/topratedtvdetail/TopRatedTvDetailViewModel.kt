@@ -11,18 +11,21 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class TopRatedTvDetailViewModel : ViewModel() {
-    private val topRatedTvDetailUseCase: GetTopRatedTvDetailUseCase = GetTopRatedTvDetailUseCase()
+    private val getTopRatedTvDetailUseCase: GetTopRatedTvDetailUseCase =
+        GetTopRatedTvDetailUseCase()
 
-    private val _TvTopRatedDetail: MutableStateFlow<TvShowDetail> by lazy {
+    private val _tvTopRatedDetail: MutableStateFlow<TvShowDetail> by lazy {
         MutableStateFlow(TvShowDetail())
     }
 
     val tvShowDetail: StateFlow<TvShowDetail>
-        get() = _TvTopRatedDetail
+        get() = _tvTopRatedDetail
 
-    init {
+    fun fetchTvShowDetail(tvId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            this@TopRatedTvDetailViewModel._TvTopRatedDetail.update { topRatedTvDetailUseCase.getTopRatedTvDetail() }
+            this@TopRatedTvDetailViewModel._tvTopRatedDetail.update {
+                getTopRatedTvDetailUseCase.getTopRatedTvDetail(tvId)
+            }
         }
     }
 }

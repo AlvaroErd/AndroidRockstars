@@ -1,6 +1,6 @@
 package com.mango.androidrockstars.data.datasource.features.topratedtvlist.remote.mapper
 
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
+import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiDetailResponse
 import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiListResponse
 import com.mango.androidrockstars.domain.model.TopRatedTvPage
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties

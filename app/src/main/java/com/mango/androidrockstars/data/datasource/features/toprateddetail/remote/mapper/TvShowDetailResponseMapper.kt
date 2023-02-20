@@ -1,9 +1,9 @@
 package com.mango.androidrockstars.data.datasource.features.toprateddetail.remote.mapper
 
-import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiDetailResponse
+import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiTvDetailResponse
 import com.mango.androidrockstars.domain.model.TvShowDetail
 
-private fun tvShowDetailResponseMapper(apiDetail: ApiDetailResponse): TvShowDetail {
+fun tvShowDetailResponseMapper(apiDetail: ApiTvDetailResponse): TvShowDetail {
     return TvShowDetail(
         id = apiDetail.tv_Id,
         posterPath = "https://image.tmdb.org/t/p/w500${apiDetail.posterPath}",
