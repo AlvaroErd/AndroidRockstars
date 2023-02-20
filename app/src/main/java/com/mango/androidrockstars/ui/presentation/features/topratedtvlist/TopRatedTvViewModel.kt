@@ -31,6 +31,7 @@ class TopRatedTvViewModel : ViewModel() {
         }
     }
 
+
     //For CricularProgressIndicator
     val isLoading = mutableStateOf(false)
 }
