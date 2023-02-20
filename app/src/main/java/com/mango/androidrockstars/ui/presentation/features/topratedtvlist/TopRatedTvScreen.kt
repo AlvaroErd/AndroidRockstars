@@ -35,8 +35,9 @@ import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 @Composable
 fun TopRatedTvListScreen(
     viewModelTvList: TopRatedTvViewModel,
+    onItemClick: (Int) -> Unit
 ) {
-    val ratedTvList by viewModelTvList.topRatedTvList.collectAsState()
+    val tvListData by viewModelTvList.topRatedTvList.collectAsState()
 
     Scaffold(
         topBar = {
@@ -49,7 +50,6 @@ fun TopRatedTvListScreen(
             .padding(all = 0.dp),
         backgroundColor = Color.DarkGray
     ) {
-        it
         if (viewModelTvList.isLoading.value) {
             Box(modifier = Modifier.fillMaxSize()) {
                 CircularProgressIndicator(
@@ -58,29 +58,38 @@ fun TopRatedTvListScreen(
                 )
             }
         } else {
-//        ListItemCard(topRatedTvListMock)
-            ListCards(ratedTvList)
+            ListCards(
+                tvListData,
+                it,
+                /*Todo agregar paddings y quitar it*/
+                onItemClick
+            )
         }
     }
 }
 
 @Composable
-fun ListCards(topRatedTvList: List<TopRatedTvProperties>) {
+fun ListCards(
+    topRatedTvList: List<TopRatedTvProperties>,
+    paddingValues: PaddingValues,
+    onItemClick: (Int) -> Unit
+) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colors.background)
-            .padding(top = 10.dp, bottom = 10.dp),
-        contentPadding = PaddingValues(horizontal = 15.dp, vertical = 5.dp),
+            .padding(paddingValues),
+        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 5.dp),
         horizontalArrangement = Arrangement.spacedBy(20.dp),
         verticalArrangement = Arrangement.Center,
     ) {
         items(topRatedTvList) { item ->
             ListItemCard(
-                item,
-//                actionClick = { item }
-            )
+                item
+            ) {
+                onItemClick(item.id)
+            }
         }
     }
 }
@@ -89,7 +98,7 @@ fun ListCards(topRatedTvList: List<TopRatedTvProperties>) {
 @Composable
 fun ListItemCard(
     item: TopRatedTvProperties,
-//    actionClick: (topRatedTvList) -> Unit,
+    onItemClick: (tvId: Int) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
@@ -105,18 +114,9 @@ fun ListItemCard(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .clip(MaterialTheme.shapes.large)
-/*                    .clickable {
-                        Toast
-                            .makeText(
-                                context,
-                                "You have been clicked ${item.name}",
-                                Toast.LENGTH_SHORT
-                            )
-                            .show()
-                    }
                     .clickable {
-                        actionClick(item)
-                    }*/
+                        onItemClick(item.id)
+                    }
             )
             Column(
                 modifier = Modifier
@@ -191,6 +191,8 @@ fun ListItemCard(
     }
 }
 
+
+// PREVIEW
 @Preview("Light Theme", showBackground = true)
 @Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
@@ -206,12 +208,14 @@ fun TopRatedTvListScreenBothThemesPreview() {
                 modifier = Modifier.fillMaxSize(),
                 backgroundColor = Color.DarkGray
             ) {
-                it
-                ListCards(topRatedTvListMock)
+                ListCards(topRatedTvListMock, it) { clickedItem ->
+
+                }
             }
         }
     }
 }
+
 
 /*
 Como con Coil y Jetpack no se pueden mostrar imagenes en la preview, lo que podemos hacer es mostrar

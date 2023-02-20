@@ -15,8 +15,9 @@
         android:theme="@style/Theme.AndroidRockStars"
         tools:targetApi="31">
         <activity
-            android:name=".TopRatedTvDetail"
-            android:exported="false" />
+            android:name=".ui.presentation.features.topratedtvdetail.TopRatedTvDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AndroidRockStars" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
@@ -29,5 +30,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
