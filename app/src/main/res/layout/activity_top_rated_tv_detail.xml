@@ -16,85 +16,104 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/img_background"
+            android:id="@+id/img_background_tv_show"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
-
         <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout">
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout">
-
-
-        </LinearLayout>
+            android:background="@drawable/gradient" />
 
 
     </FrameLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="120dp"
-        android:layout_height="170dp"
-        android:clipToPadding="true"
-        android:gravity="center"
-        app:cardCornerRadius="8dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="172dp">
-
-        <ImageView
-            android:id="@+id/img_movie"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/txt_released"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="15dp"
+        android:drawablePadding="8dp"
+        android:text="Released date:"
+        app:layout_constraintEnd_toStartOf="@+id/img_poster"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_released_date"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/img_poster"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_released"
+        tools:text="Loren Ipsum" />
+
+    <ImageView
+        android:id="@+id/img_poster"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="-80dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/txt_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="Original language:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_poster"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/txt_language_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_poster"
+        app:layout_constraintTop_toBottomOf="@+id/txt_language"
+        tools:text="Loren Ipsum" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/img_poster"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:text="Tv Show Title" />
+
+
+    <TextView
+        android:id="@+id/txt_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        tools:layout_editor_absoluteX="0dp"
+        tools:text="7.1 (4123 Reviews)" />
+
+    <TextView
+        android:id="@+id/txt_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -109,81 +128,10 @@
         android:id="@+id/txt_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_overview"
         tools:layout_editor_absoluteX="0dp"
         tools:text="Loren Ipsum" />
-
-    <TextView
-        android:id="@+id/txt_released"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginTop="15dp"
-        android:drawablePadding="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        tools:text="Released date:" />
-
-    <TextView
-        android:id="@+id/txt_released_date"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginTop="10dp"
-        android:drawablePadding="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_released"
-        tools:text="20-10-2022" />
-
-    <TextView
-        android:id="@+id/txt_movie_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:layout_editor_absoluteX="0dp"
-        tools:text="Movie Title" />
-
-    <TextView
-        android:id="@+id/txt_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawablePadding="8dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        tools:text="Original language:" />
-
-    <TextView
-        android:id="@+id/txt_language_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:drawablePadding="8dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/txt_language"
-        tools:text="English" />
-
-    <TextView
-        android:id="@+id/txt_rating"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:drawablePadding="8dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/txt_movie_title"
-        tools:layout_editor_absoluteX="0dp"
-        tools:text="7.1 (4123 Reviews)" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

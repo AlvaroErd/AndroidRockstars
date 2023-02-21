@@ -102,7 +102,6 @@ fun ListItemCard(
 ) {
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
-//    val context = LocalContext.current
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Column(

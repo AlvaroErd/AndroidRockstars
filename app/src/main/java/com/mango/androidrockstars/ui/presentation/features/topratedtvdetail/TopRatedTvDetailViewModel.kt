@@ -23,8 +23,9 @@ class TopRatedTvDetailViewModel : ViewModel() {
 
     fun fetchTvShowDetail(tvId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            this@TopRatedTvDetailViewModel._tvTopRatedDetail.update {
-                getTopRatedTvDetailUseCase.getTopRatedTvDetail(tvId)
+            val result = getTopRatedTvDetailUseCase.getTopRatedTvDetail(tvId)
+            _tvTopRatedDetail.update {
+                result
             }
         }
     }
