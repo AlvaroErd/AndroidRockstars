@@ -34,12 +34,24 @@ class TopRatedTvDetailActivity : ComponentActivity() {
                 this@TopRatedTvDetailActivity.topRatedTvDetailViewModel.tvShowDetail.collectLatest { detailId ->
                     withContext(Dispatchers.Main) {
                         binding.imgBackgroundTvShow.load(detailId.posterPath)
+                        binding.imgBackgroundTvShow.contentDescription =
+                            ("Background poster of the ${detailId.name} Tv Show")
                         binding.imgPoster.load(detailId.posterPath)
+                        binding.imgPoster.contentDescription =
+                            ("Poster of the ${detailId.name} Tv Show")
                         binding.txtTitle.setText(detailId.name)
+                        binding.txtTitle.contentDescription = (detailId.name)
                         binding.txtLanguagePlaceholder.setText(detailId.original_language)
+                        binding.txtLanguagePlaceholder.contentDescription =
+                            (detailId.original_language)
                         binding.txtDescription.setText(detailId.overview)
+                        binding.txtDescription.contentDescription = (detailId.overview)
                         binding.txtReleasedDatePlaceholder.setText(detailId.first_air_date)
+                        binding.txtReleasedDatePlaceholder.contentDescription =
+                            (detailId.first_air_date)
                         binding.txtRating.setText("${detailId.voteAverage} (${detailId.voteCount} Reviews)")
+                        binding.txtRating.contentDescription =
+                            ("${detailId.voteAverage} votes of (${detailId.voteCount} Reviews)")
                     }
                 }
             }

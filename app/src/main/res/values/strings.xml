@@ -2,4 +2,8 @@
     <string name="app_name">Android Rock Stars</string>
 
     <string name="back_button">Back</string>
+    <string name="release_date">Release date:</string>
+    <string name="original_language">Original language:</string>
+    <string name="overview">Overview</string>
+
 </resources>
