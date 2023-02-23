@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.AndroidRockStars" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="Theme.AndroidRockStars" parent="android:Theme.Material.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/androidRockstarsLightPrimary</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/androidRockstarsLightSecondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/androidRockstarsLightGrayStatus</item>
+        <!-- Customize your theme here. -->
+        <item name="background">@color/androidRockstarsLightBackground</item>
+    </style>
+
+    <style name="card">
+        <item name="cornerSize">5%</item>
     </style>
 </resources>

@@ -2,4 +2,23 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    //Light Theme
+    <color name="androidRockstarsLightBackground">#FFFDFCF4</color>
+    <color name="androidRockstarsLightSurface">#FFE5EBEB</color>
+    <color name="androidRockstarsLightSecondary">#FF615548</color>
+    <color name="androidRockstarsLightOnSurface">#FF1B1C18</color>
+    <color name="androidRockstarsLightPrimary">#FF683E00</color>
+    <color name="androidRockstarsLightOnPrimary">#FF001C1F</color>
+    <color name="androidRockstarsLightGrayStatus">#FFDADFDF</color>
+
+    // Dark Theme
+    <color name="androidRockstarsDarkBackground">#9E2B3848</color>
+    <color name="androidRockstarsDarkSurface">#FF29343F</color>
+    <color name="androidRockstarsDarkSecondary">#FFE1E6C6</color>
+    <color name="androidRockstarsDarkOnSurface">#FFE4E3DB</color>
+    <color name="androidRockstarsDarkPrimary">#FFABC4CA</color>
+    <color name="androidRockstarsDarkOnPrimary">#FFF0F0F0</color>
+    <color name="androidRockstarsDarkBlueStatus">#FF212A33</color>
+
 </resources>
