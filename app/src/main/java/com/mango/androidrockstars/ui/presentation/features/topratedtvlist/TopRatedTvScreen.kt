@@ -50,7 +50,7 @@ fun TopRatedTvListScreen(
         modifier = Modifier
             .fillMaxSize()
             .padding(all = 0.dp),
-        backgroundColor = Color.DarkGray
+//        backgroundColor = Color.DarkGray
     ) {
         if (isProgressBarVisible) {
             Box(
@@ -65,7 +65,6 @@ fun TopRatedTvListScreen(
             ListCards(
                 tvListData,
                 it,
-                /*Todo agregar paddings y quitar it*/
                 onItemClick
             )
         }
