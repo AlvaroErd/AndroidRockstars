@@ -29,8 +29,10 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
+import com.mango.androidrockstars.ui.presentation.components.ProgressIndicator
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
+import kotlinx.coroutines.delay
 
 @Composable
 fun TopRatedTvListScreen(
@@ -38,7 +40,7 @@ fun TopRatedTvListScreen(
     onItemClick: (Int) -> Unit
 ) {
     val tvListData by viewModelTvList.topRatedTvList.collectAsState()
-
+    var isProgressBarVisible by remember { mutableStateOf(true) }
     Scaffold(
         topBar = {
             TopBar(
@@ -50,12 +52,14 @@ fun TopRatedTvListScreen(
             .padding(all = 0.dp),
         backgroundColor = Color.DarkGray
     ) {
-        if (viewModelTvList.isLoading.value) {
-            Box(modifier = Modifier.fillMaxSize()) {
-                CircularProgressIndicator(
-                    modifier = Modifier.align(Alignment.Center),
-                    color = MaterialTheme.colors.onPrimary
-                )
+        if (isProgressBarVisible) {
+            Box(
+            ) {
+                ProgressIndicator()
+                LaunchedEffect(Unit) {
+                    delay(3000)
+                    isProgressBarVisible = false
+                }
             }
         } else {
             ListCards(
@@ -115,7 +119,9 @@ fun ListItemCard(
                     .clip(MaterialTheme.shapes.large)
                     .clickable {
                         onItemClick(item.id)
+
                     }
+                    .aspectRatio(2 / 3f),
             )
             Column(
                 modifier = Modifier
@@ -215,28 +221,3 @@ fun TopRatedTvListScreenBothThemesPreview() {
     }
 }
 
-
-/*
-Como con Coil y Jetpack no se pueden mostrar imagenes en la preview, lo que podemos hacer es mostrar
- un placeholder con una imagen de nuestro repositorio, asi podemos previsualizar la card completa.
-
-.aspectRatio(2 / 3f),
-placeholder = painterResource(R.drawable.wakanda),*/
-
-
-/*
-Otra manera de crear un mock con datos aleatorios
-
-    val list = mutableListOf<ApiDetailResponse>()
-
-    (0..20).forEach {
-        list.add(
-            ApiDetailResponse(
-                posterPath = "",
-                name = "Tv Show " + "${Random.nextInt(1, 20)}",
-                voteCount = Random.nextInt(20, 700),
-                voteAverage = Random.nextDouble(0.1 * 100, 5.0 * 100).roundToInt() / 100.0,
-            )
-        )
-    }
-*/

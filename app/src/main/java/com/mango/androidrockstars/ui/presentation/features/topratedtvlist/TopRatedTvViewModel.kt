@@ -1,6 +1,5 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
@@ -10,7 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-
 
 class TopRatedTvViewModel : ViewModel() {
     private val topRatedTvUseCase: GetTopRatedTvUseCase = GetTopRatedTvUseCase()
@@ -30,12 +28,7 @@ class TopRatedTvViewModel : ViewModel() {
             this@TopRatedTvViewModel._topRatedTvList.update { topRatedTvUseCase.getTopRatedTv().results }
         }
     }
-
-
-    //For CricularProgressIndicator
-    val isLoading = mutableStateOf(false)
 }
-
 
 //Mock
 val topRated1 = TopRatedTvProperties("Peli 1", "", 4.5, 834, 1)
