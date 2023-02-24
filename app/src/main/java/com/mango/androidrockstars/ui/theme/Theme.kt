@@ -5,6 +5,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
 private val LightColorPalette = lightColors(
@@ -38,13 +40,13 @@ fun AndroidRockStarsTheme(
         LightColorPalette
     }
 
-//    val systemUiController = rememberSystemUiController()
-//    SideEffect {
-//        systemUiController.setSystemBarsColor(
-//            color = if (darkTheme) darkBlueStatus
-//            else lightGrayStatus
-//        )
-//    }
+    val systemUiController = rememberSystemUiController()
+    SideEffect {
+        systemUiController.setSystemBarsColor(
+            color = if (darkTheme) darkBlueStatus
+            else lightGrayStatus
+        )
+    }
     MaterialTheme(
         colors = colors,
         typography = Typography,
