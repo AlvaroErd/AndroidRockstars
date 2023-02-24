@@ -34,7 +34,7 @@ import com.mango.androidrockstars.ui.presentation.components.ProgressIndicator
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 
-@SuppressLint("UnrememberedMutableState", "UnusedMaterialScaffoldPaddingParameter")
+@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun TopRatedTvListScreen(
     viewModelTvList: TopRatedTvViewModel,
@@ -54,11 +54,7 @@ fun TopRatedTvListScreen(
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             ProgressIndicator(isDisplayed = loading)
-            ListCards(
-                tvListData,
-                it,
-                onItemClick
-            )
+            ListCards(tvListData, it, onItemClick)
         }
     }
 }

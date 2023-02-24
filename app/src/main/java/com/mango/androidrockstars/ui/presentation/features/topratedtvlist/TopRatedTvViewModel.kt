@@ -1,6 +1,5 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
@@ -26,11 +25,11 @@ class TopRatedTvViewModel : ViewModel() {
 
 
     //For manage state of CircularProgressIndicator
-    val loading = mutableStateOf(true)
-
+    val loading = MutableStateFlow(false)
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
+            loading.value = true
             // To show that the Circular Progress indicator is loading during 2 secs
             delay(2000)
             this@TopRatedTvViewModel._topRatedTvList.update { topRatedTvUseCase.getTopRatedTv().results }
