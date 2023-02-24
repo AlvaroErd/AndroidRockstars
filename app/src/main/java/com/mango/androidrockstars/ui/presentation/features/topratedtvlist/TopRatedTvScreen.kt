@@ -1,6 +1,7 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
@@ -32,15 +33,15 @@ import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.ui.presentation.components.ProgressIndicator
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
-import kotlinx.coroutines.delay
 
+@SuppressLint("UnrememberedMutableState", "UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun TopRatedTvListScreen(
     viewModelTvList: TopRatedTvViewModel,
     onItemClick: (Int) -> Unit
 ) {
     val tvListData by viewModelTvList.topRatedTvList.collectAsState()
-    var isProgressBarVisible by remember { mutableStateOf(true) }
+    val loading = viewModelTvList.loading.value
     Scaffold(
         topBar = {
             TopBar(
@@ -50,18 +51,9 @@ fun TopRatedTvListScreen(
         modifier = Modifier
             .fillMaxSize()
             .padding(all = 0.dp),
-//        backgroundColor = Color.DarkGray
     ) {
-        if (isProgressBarVisible) {
-            Box(
-            ) {
-                ProgressIndicator()
-                LaunchedEffect(Unit) {
-                    delay(3000)
-                    isProgressBarVisible = false
-                }
-            }
-        } else {
+        Box(modifier = Modifier.fillMaxSize()) {
+            ProgressIndicator(isDisplayed = loading)
             ListCards(
                 tvListData,
                 it,
@@ -118,7 +110,6 @@ fun ListItemCard(
                     .clip(MaterialTheme.shapes.large)
                     .clickable {
                         onItemClick(item.id)
-
                     }
                     .aspectRatio(2 / 3f),
             )
@@ -139,7 +130,7 @@ fun ListItemCard(
                         fontSize = 14.sp,
                         color = MaterialTheme.colors.onPrimary
                     )
-                    Row() {
+                    Row {
                         Text(
                             text = item.voteAverage.toString(),
                             fontSize = 12.sp,
@@ -152,7 +143,7 @@ fun ListItemCard(
                             tint = colorStar
                         )
                         Text(
-                            text = "of ${item.voteCount.toString()} votes",
+                            text = "of ${item.voteCount} votes",
                             fontSize = 12.sp,
                             color = MaterialTheme.colors.onPrimary,
 
@@ -168,8 +159,7 @@ fun ListItemCard(
                         fontSize = 14.sp,
                         color = MaterialTheme.colors.onPrimary
                     )
-                    Row(
-                    ) {
+                    Row {
                         Text(
                             text = item.voteAverage.toString(),
                             color = MaterialTheme.colors.onPrimary,
@@ -182,7 +172,7 @@ fun ListItemCard(
                             tint = colorStar
                         )
                         Text(
-                            text = "of ${item.voteCount.toString()} votes",
+                            text = "of ${item.voteCount} votes",
                             color = MaterialTheme.colors.onPrimary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
@@ -212,8 +202,9 @@ fun TopRatedTvListScreenBothThemesPreview() {
                 modifier = Modifier.fillMaxSize(),
                 backgroundColor = Color.DarkGray
             ) {
-                ListCards(topRatedTvListMock, it) { clickedItem ->
-
+                Box(modifier = Modifier.fillMaxSize()) {
+                    ListCards(topRatedTvListMock, it) {
+                    }
                 }
             }
         }

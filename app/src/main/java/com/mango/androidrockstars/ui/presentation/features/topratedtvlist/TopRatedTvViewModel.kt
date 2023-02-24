@@ -1,10 +1,12 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.domain.usecase.GetTopRatedTvUseCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -23,23 +25,30 @@ class TopRatedTvViewModel : ViewModel() {
         get() = _topRatedTvList
 
 
+    //For manage state of CircularProgressIndicator
+    val loading = mutableStateOf(true)
+
+
     init {
         viewModelScope.launch(Dispatchers.IO) {
+            // To show that the Circular Progress indicator is loading during 2 secs
+            delay(2000)
             this@TopRatedTvViewModel._topRatedTvList.update { topRatedTvUseCase.getTopRatedTv().results }
+            loading.value = false
         }
     }
 }
 
 //Mock
-val topRated1 = TopRatedTvProperties("Peli 1", "", 4.5, 834, 1)
-val topRated2 = TopRatedTvProperties("Peli 2", "", 3.5, 342, 2)
-val topRated3 = TopRatedTvProperties("Peli 3", "", 2.5, 32, 3)
-val topRated4 = TopRatedTvProperties("Peli 4", "", 3.1, 122, 4)
-val topRated5 = TopRatedTvProperties("Peli 5", "", 2.3, 111, 5)
-val topRated6 = TopRatedTvProperties("Peli 6", "", 1.8, 8453, 6)
-val topRated7 = TopRatedTvProperties("Peli 7", "", 4.3, 2342, 7)
-val topRated8 = TopRatedTvProperties("Peli 8", "", 2.4, 6527, 8)
+val topRated1 = TopRatedTvProperties("Tv Show 1", "", 4.5, 834, 1)
+val topRated2 = TopRatedTvProperties("Tv Show 2", "", 3.5, 342, 2)
+val topRated3 = TopRatedTvProperties("Tv Show 3", "", 2.5, 32, 3)
+val topRated4 = TopRatedTvProperties("Tv Show 4", "", 3.1, 122, 4)
+val topRated5 = TopRatedTvProperties("Tv Show 5", "", 2.3, 111, 5)
+val topRated6 = TopRatedTvProperties("Tv Show 6", "", 1.8, 8453, 6)
+val topRated7 = TopRatedTvProperties("Tv Show 7", "", 4.3, 2342, 7)
+val topRated8 = TopRatedTvProperties("Tv Show 8", "", 2.4, 6527, 8)
 
-val topRatedTvListMock = listOf<TopRatedTvProperties>(
+val topRatedTvListMock = listOf(
     topRated1, topRated2, topRated3, topRated4, topRated5, topRated6, topRated7, topRated8
 )
