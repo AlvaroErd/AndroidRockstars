@@ -30,8 +30,8 @@ class TopRatedTvViewModel : ViewModel() {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            // To show that the Circular Progress indicator is loading during 2 secs
-            delay(2000)
+            // To show that the Circular Progress indicator is loading during 0.5 sec
+            delay(500)
             this@TopRatedTvViewModel._topRatedTvList.update { topRatedTvUseCase.getTopRatedTv().results }
             loading.value = false
         }

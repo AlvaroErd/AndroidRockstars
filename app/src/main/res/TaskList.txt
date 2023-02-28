@@ -15,7 +15,6 @@ Todo Create an enum class to refactor original language in detail Screen
 Todo Modify the voteCount number (no . and no more than 1 digit before the coma)
 Todo Insert a typography for the app
 Todo Show TopBar in xml Screens with backStack button (arrow)
-Todo Create Splash screen
 Todo Set up Room
 Todo Add animations
 Todo Add a LazyRow to show similar tv shows under the detail screen. Endpoint: tv/get-similar-tv-shows

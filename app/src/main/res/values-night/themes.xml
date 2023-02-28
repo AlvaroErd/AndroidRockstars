@@ -14,4 +14,13 @@
         <!-- Customize your theme here. -->
         <item name="android:background">@color/androidRockstarsDarkBackground</item>
     </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">:
+        <item name="windowSplashScreenBackground">@color/androidRockstarsDarkSurface</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_animation</item>
+        <item name="windowSplashScreenAnimationDuration">2000</item>
+        <item name="postSplashScreenTheme">@style/Theme.AndroidRockStars</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/brand_logo_night</item>
+
+    </style>
 </resources>
