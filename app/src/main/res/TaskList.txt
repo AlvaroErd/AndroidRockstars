@@ -9,7 +9,6 @@ Desirable
 Todo Pass every string to string resources
 Todo Pass every string resource to another language
 Todo Control the error when there is no internet connection and show a connectivity error
-Todo Rebuild dependencies
 Todo Readjust the xml theme
 Todo Create an enum class to refactor original language in detail Screen
 Todo Modify the voteCount number (no . and no more than 1 digit before the coma)
