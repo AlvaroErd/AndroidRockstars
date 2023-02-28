@@ -65,9 +65,6 @@ android {
 
 dependencies {
 
-
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     def appDependencies = rootProject.ext.appDependencies
     def appTestDependencies = rootProject.ext.appTestDependencies
 
@@ -83,11 +80,11 @@ dependencies {
     implementation appDependencies.gson
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverter
-//    implementation appDependencies.pagingCompose
+    implementation appDependencies.pagingCompose
     implementation appDependencies.okHttp
     implementation appDependencies.coroutines
     implementation appDependencies.hilt
-    kapt "com.google.dagger:hilt-compiler:${hiltVersion}"
+    kapt appDependencies.kapt
     implementation appDependencies.coil
     implementation appDependencies.material3
     implementation appDependencies.material3Window
@@ -96,21 +93,18 @@ dependencies {
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverter
     implementation appDependencies.okHttp
-    implementation 'androidx.activity:activity-compose:1.6.1'
-    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
-    implementation "androidx.fragment:fragment-ktx:1.5.5"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
-    def paging_version = "3.1.1"
-    implementation "androidx.paging:paging-runtime:$paging_version"
-    implementation "androidx.paging:paging-compose:1.0.0-alpha17"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
-    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
-    // Navigation with Jetpack Compose Integration
-    implementation "androidx.navigation:navigation-compose:2.5.3"
-
-    implementation "androidx.core:core-splashscreen:1.0.0"
+    implementation appDependencies.navigationRuntime
+    implementation appDependencies.fragmentKtx
+    implementation appDependencies.lifecycleViewModel
+    implementation appDependencies.pagingRuntime
+    implementation appDependencies.navigationFragmentKtx
+    implementation appDependencies.navigationUiKtx
+    implementation appDependencies.splashScreen
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.appcompat
 
     testImplementation appTestDependencies.jUnit
+
 
     androidTestImplementation appTestDependencies.androidJUnit
     androidTestImplementation appTestDependencies.espresso
