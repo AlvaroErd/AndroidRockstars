@@ -1,4 +1,4 @@
-Todo list 24-2-23
+Todo list 28-2-23
 
 Mandatory
 Todo Add Hilt like Dependencies Injector
@@ -6,12 +6,13 @@ Todo Add Circular progress bar in detail Screen
 Todo Add pagination in List Screen (https://www.youtube.com/watch?app=desktop&v=D6Eus3f6U9I  https://proandroiddev.com/pagination-in-jetpack-compose-with-and-without-paging-3-e45473a352f4  https://medium.com/schibsted-tech-polska/list-pagination-with-jetpack-compose-6c25da053858  https://www.youtube.com/watch?v=qsUHeg-acJU)
 
 Desirable
+Todo Pass every string to string resources
+Todo Pass every string resource to another language
 Todo Control the error when there is no internet connection and show a connectivity error
 Todo Rebuild dependencies
 Todo Readjust the xml theme
 Todo Create an enum class to refactor original language in detail Screen
 Todo Modify the voteCount number (no . and no more than 1 digit before the coma)
-Todo Create an icon for the app
 Todo Insert a typography for the app
 Todo Show TopBar in xml Screens with backStack button (arrow)
 Todo Create Splash screen

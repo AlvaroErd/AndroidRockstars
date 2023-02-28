@@ -5,5 +5,6 @@
     <string name="release_date">Release date:</string>
     <string name="original_language">Original language:</string>
     <string name="overview">Overview</string>
+    <string name="loading">Loading …</string>
 
 </resources>
