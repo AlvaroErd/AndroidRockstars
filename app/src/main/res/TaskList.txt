@@ -17,4 +17,4 @@ Todo Show TopBar in xml Screens with backStack button (arrow)
 Todo Set up Room
 Todo Add animations
 Todo Add a LazyRow to show similar tv shows under the detail screen. Endpoint: tv/get-similar-tv-shows
-Todo Read modules
+Todo Re-add modules
