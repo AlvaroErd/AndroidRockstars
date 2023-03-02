@@ -5,15 +5,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mango.androidrockstars.domain.model.TopRatedTvProperties
 import com.mango.androidrockstars.domain.usecase.GetTopRatedTvUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TopRatedTvViewModel : ViewModel() {
-    private val topRatedTvUseCase: GetTopRatedTvUseCase = GetTopRatedTvUseCase()
+@HiltViewModel
+class TopRatedTvViewModel @Inject constructor(
+    private val topRatedTvUseCase: GetTopRatedTvUseCase
+) : ViewModel() {
+
 
     private val _topRatedTvList: MutableStateFlow<List<TopRatedTvProperties>> by lazy {
         MutableStateFlow(

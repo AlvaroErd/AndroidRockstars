@@ -1,7 +1,6 @@
 Todo list 28-2-23
 
 Mandatory
-Todo Add Hilt like Dependencies Injector
 Todo Add pagination in List Screen (https://www.youtube.com/watch?app=desktop&v=D6Eus3f6U9I  https://proandroiddev.com/pagination-in-jetpack-compose-with-and-without-paging-3-e45473a352f4  https://medium.com/schibsted-tech-polska/list-pagination-with-jetpack-compose-6c25da053858  https://www.youtube.com/watch?v=qsUHeg-acJU)
 
 Desirable
@@ -18,3 +17,4 @@ Todo Add animations
 Todo Add a LazyRow to show similar tv shows under the detail screen. Endpoint: tv/get-similar-tv-shows
 Todo Re-add modules
 Todo Add control states (Loading, Success, Error) linked with the circular progress indicator
+Todo Review the architecture of the proyect (names in data package is correct?)

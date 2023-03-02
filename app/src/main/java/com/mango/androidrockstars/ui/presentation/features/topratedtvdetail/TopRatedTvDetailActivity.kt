@@ -9,12 +9,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import coil.load
 import com.mango.androidrockstars.databinding.ActivityTopRatedTvDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class TopRatedTvDetailActivity : ComponentActivity() {
 
     private val topRatedTvDetailViewModel: TopRatedTvDetailViewModel by viewModels()

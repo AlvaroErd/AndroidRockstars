@@ -3,12 +3,12 @@ package com.mango.androidrockstars.data.source
 import com.mango.androidrockstars.BuildConfig
 import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiTvDetailResponse
 import com.mango.androidrockstars.data.remote.ImdbApiService
-import com.mango.androidrockstars.data.remote.Service
+import javax.inject.Inject
 
-class RemoteTopRatedTvDetailDataSource {
-    private val imdbApiService: ImdbApiService = Service.getInstance()
+class RemoteTopRatedTvDetailDataSource @Inject constructor(
+    private val imdbApiService: ImdbApiService
+) : TopRatedTvDetailDataSource {
 
-
-    suspend fun getTopRatedTvDetail(tvId: Int): ApiTvDetailResponse =
+    override suspend fun getTopRatedTvDetail(tvId: Int): ApiTvDetailResponse =
         imdbApiService.getTopRatedTvDetail(tvId, "${BuildConfig.API_KEY}", "en-US")
 }

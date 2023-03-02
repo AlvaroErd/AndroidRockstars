@@ -1,7 +1,6 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
 
-import android.annotation.SuppressLint
 import android.content.res.Configuration
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
@@ -34,7 +33,6 @@ import com.mango.androidrockstars.ui.presentation.components.ProgressIndicator
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 
-@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun TopRatedTvListScreen(
     viewModelTvList: TopRatedTvViewModel,
