@@ -4,12 +4,12 @@ import com.mango.androidrockstars.BuildConfig
 import com.mango.androidrockstars.data.remote.ImdbApiService
 import com.mango.androidrockstars.data.repository.TopRatedTvDetailRepositoryImpl
 import com.mango.androidrockstars.data.repository.TopRatedTvListRepositoryImpl
-import com.mango.androidrockstars.data.source.RemoteTopRatedTvDataSource
 import com.mango.androidrockstars.data.source.RemoteTopRatedTvDetailDataSource
-import com.mango.androidrockstars.data.source.TopRatedTvDataSource
+import com.mango.androidrockstars.data.source.RemoteTopRatedTvListDataSource
 import com.mango.androidrockstars.data.source.TopRatedTvDetailDataSource
+import com.mango.androidrockstars.data.source.TopRatedTvListDataSource
 import com.mango.androidrockstars.domain.repository.TopRatedTvDetailRepository
-import com.mango.androidrockstars.domain.repository.TopRatedTvRepository
+import com.mango.androidrockstars.domain.repository.TopRatedTvListRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,17 +33,17 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiClient(retrofit: Retrofit): ImdbApiService {
+    fun provideTopRatedTvApiClient(retrofit: Retrofit): ImdbApiService {
         return retrofit.create(ImdbApiService::class.java)
     }
 
     @Provides
-    fun provideTopRatedTvDataStore(api: ImdbApiService): TopRatedTvDataSource {
-        return RemoteTopRatedTvDataSource(api)
+    fun provideTopRatedTvDataStore(api: ImdbApiService): TopRatedTvListDataSource {
+        return RemoteTopRatedTvListDataSource(api)
     }
 
     @Provides
-    fun provideTopRatedTvRepository(dataStore: TopRatedTvDataSource): TopRatedTvRepository {
+    fun provideTopRatedTvRepository(dataStore: TopRatedTvListDataSource): TopRatedTvListRepository {
         return TopRatedTvListRepositoryImpl(dataStore)
     }
 

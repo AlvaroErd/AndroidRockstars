@@ -3,7 +3,7 @@ package com.mango.androidrockstars.data.datasource.features.topratedtvlist.model
 import com.google.gson.annotations.SerializedName
 
 data class ApiDetailResponse(
-    @SerializedName("id") val tv_Id: Int = 0,
+    @SerializedName("id") val id: Int = 0,
     @SerializedName("poster_path") val posterPath: String = "",
     @SerializedName("name") val name: String = "",
     @SerializedName("vote_count") val voteCount: Int = 0,

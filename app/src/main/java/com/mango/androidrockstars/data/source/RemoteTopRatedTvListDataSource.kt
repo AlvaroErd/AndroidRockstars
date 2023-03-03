@@ -5,9 +5,11 @@ import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.
 import com.mango.androidrockstars.data.remote.ImdbApiService
 import javax.inject.Inject
 
-class RemoteTopRatedTvDataSource @Inject constructor(private val imdbApiService: ImdbApiService) :
-    TopRatedTvDataSource {
+class RemoteTopRatedTvListDataSource @Inject constructor(
+    private val api: ImdbApiService
+) :
+    TopRatedTvListDataSource {
 
     override suspend fun getTopRatedTvList(): ApiListResponse =
-        imdbApiService.getTopRatedTv("${BuildConfig.API_KEY}", 1, "en-US")
+        api.getTopRatedTvList(apiKey = BuildConfig.API_KEY, page = 1, language = "en-US")
 }

@@ -10,7 +10,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
@@ -26,19 +25,22 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.domain.model.TopRatedTvProperties
+import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiDetailResponse
 import com.mango.androidrockstars.ui.presentation.components.ProgressIndicator
 import com.mango.androidrockstars.ui.presentation.components.TopBar
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 
 @Composable
 fun TopRatedTvListScreen(
-    viewModelTvList: TopRatedTvViewModel,
+    viewModelTvList: TopRatedTvListViewModel,
     onItemClick: (Int) -> Unit
 ) {
-    val tvListData by viewModelTvList.topRatedTvList.collectAsState()
+//    val tvListData by viewModelTvList.topRatedTvList.collectAsState()
     val loading = viewModelTvList.loading.value
     Scaffold(
         topBar = {
@@ -52,17 +54,22 @@ fun TopRatedTvListScreen(
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             ProgressIndicator(isDisplayed = loading)
-            ListCards(tvListData, it, onItemClick)
+            ListCards(
+//                tvListData,
+                paddingValues = it, onItemClick = onItemClick
+            )
         }
     }
 }
 
 @Composable
 fun ListCards(
-    topRatedTvList: List<TopRatedTvProperties>,
+    topRatedTvListScreenViewModel: TopRatedTvListViewModel = hiltViewModel(),
     paddingValues: PaddingValues,
-    onItemClick: (Int) -> Unit
+    onItemClick: (Int) -> Unit,
 ) {
+    val topRatedTvListItems: LazyPagingItems<ApiDetailResponse> =
+        topRatedTvListScreenViewModel.topRatedTvPaging.collectAsLazyPagingItems()
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
         modifier = Modifier
@@ -73,11 +80,11 @@ fun ListCards(
         horizontalArrangement = Arrangement.spacedBy(20.dp),
         verticalArrangement = Arrangement.Center,
     ) {
-        items(topRatedTvList) { item ->
-            ListItemCard(
-                item
-            ) {
-                onItemClick(item.id)
+        items(topRatedTvListItems.itemCount) { key ->
+            topRatedTvListItems[key]?.let { item ->
+                ListItemCard(item) {
+                    onItemClick(item.id)
+                }
             }
         }
     }
@@ -86,7 +93,8 @@ fun ListCards(
 
 @Composable
 fun ListItemCard(
-    item: TopRatedTvProperties,
+    item: ApiDetailResponse,
+//    item: TopRatedTvProperties,
     onItemClick: (tvId: Int) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
@@ -97,7 +105,8 @@ fun ListItemCard(
             modifier = Modifier
         ) {
             AsyncImage(
-                model = item.posterPath,
+//                model = item.posterPathList,
+                model = "https://image.tmdb.org/t/p/w500${item.posterPath}",
                 contentDescription = "Poster of ${item.posterPath}",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -197,8 +206,9 @@ fun TopRatedTvListScreenBothThemesPreview() {
                 backgroundColor = Color.DarkGray
             ) {
                 Box(modifier = Modifier.fillMaxSize()) {
-                    ListCards(topRatedTvListMock, it) {
-                    }
+                    it
+//                    ListCards(topRatedTvListMock, it, ) {
+//                    }
                 }
             }
         }

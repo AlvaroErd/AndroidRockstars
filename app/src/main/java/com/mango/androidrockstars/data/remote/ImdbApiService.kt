@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface ImdbApiService {
 
     @GET("tv/top_rated")
-    suspend fun getTopRatedTv(
+    suspend fun getTopRatedTvList(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("page") page: Int = 1,
         @Query("language") language: String = ""

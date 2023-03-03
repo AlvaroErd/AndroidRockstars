@@ -13,11 +13,11 @@ ext {
     appcompatVersion = "1.6.0"
     retrofitVersion = '2.9.0'                   // Retrofit
     gsonVersion = '2.10.1'                      // Gson for retrofit
-    pagingComposeVersion = '1.0.0-alpha17'      // Paging 3.0
     okHttpVersion = '4.10.0'                    // OkHttp
     coroutinesVersion = ' 1.6.1'                // Coroutines
     hiltVersion = '2.44'                        // Hilt
     kaptVersion = '2.44'                        // Hilt Compiler
+    hiltComposeVersion = '1.0.0'                // Hilt Compiler
     coilVersion = '2.2.2'                       // Coil
     material3Version = '1.0.1'                  // Material3
     material3WindowVersion = '1.0.1'            // Material3 Windows size
@@ -27,6 +27,7 @@ ext {
     splashScreenVersion = '1.0.0'
     fragmentKtxVersion = '1.5.5'
     lifecycleViewModelVersion = '2.5.1'
+    pagingComposeVersion = '1.0.0-alpha17'      // Paging 3.0
     pagingRuntimeVersion = '3.1.1'
     navigationFragmentKtxVersion = '2.5.3'
     navigationUiKtxVersion = '2.5.3'
@@ -53,10 +54,10 @@ ext {
             gson                   : "com.google.code.gson:gson:${gsonVersion}",
             retrofit               : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             retrofitConverter      : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
-            pagingCompose          : "androidx.paging:paging-compose:${pagingComposeVersion}",
             okHttp                 : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
             coroutines             : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
             hilt                   : "com.google.dagger:hilt-android:${hiltVersion}",
+            hiltCompose            : "androidx.hilt:hilt-navigation-compose:${hiltComposeVersion}",
             kapt                   : "com.google.dagger:hilt-android-compiler:${kaptVersion}",
             coil                   : "io.coil-kt:coil-compose:${coilVersion}",
             material3              : "androidx.compose.material3:material3:${material3Version}",
@@ -69,6 +70,7 @@ ext {
             navigationUiKtx        : "androidx.navigation:navigation-ui-ktx:${navigationUiKtxVersion}",
             navigationFragmentKtx  : "androidx.navigation:navigation-fragment-ktx:${navigationFragmentKtxVersion}",
             lifecycleViewModel     : "androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycleViewModelVersion}",
+            pagingCompose          : "androidx.paging:paging-compose:${pagingComposeVersion}",
             pagingRuntime          : "androidx.paging:paging-runtime:${pagingRuntimeVersion}",
             appcompat              : "androidx.appcompat:appcompat:${appcompatVersion}",
             constraintLayout       : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",

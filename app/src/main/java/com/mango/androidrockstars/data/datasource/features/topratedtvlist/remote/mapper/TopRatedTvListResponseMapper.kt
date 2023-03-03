@@ -18,8 +18,8 @@ fun topRatedTvListResponseMapper(apiList: ApiListResponse): TopRatedTvPage {
 private fun topRatedTvListResultsResponseMapper(apiDetail: ApiDetailResponse): TopRatedTvProperties {
     return TopRatedTvProperties(
         name = apiDetail.name,
-        id = apiDetail.tv_Id,
-        posterPath = "https://image.tmdb.org/t/p/w500${apiDetail.posterPath}",
+        id = apiDetail.id,
+        posterPathList = "https://image.tmdb.org/t/p/w500${apiDetail.posterPath}",
         voteAverage = apiDetail.voteAverage,
         voteCount = apiDetail.voteCount
     )

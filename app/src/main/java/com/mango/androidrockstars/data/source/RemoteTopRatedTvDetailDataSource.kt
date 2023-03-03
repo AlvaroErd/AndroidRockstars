@@ -6,9 +6,9 @@ import com.mango.androidrockstars.data.remote.ImdbApiService
 import javax.inject.Inject
 
 class RemoteTopRatedTvDetailDataSource @Inject constructor(
-    private val imdbApiService: ImdbApiService
+    private val api: ImdbApiService
 ) : TopRatedTvDetailDataSource {
 
     override suspend fun getTopRatedTvDetail(tvId: Int): ApiTvDetailResponse =
-        imdbApiService.getTopRatedTvDetail(tvId, "${BuildConfig.API_KEY}", "en-US")
+        api.getTopRatedTvDetail(tvId = tvId, apiKey = BuildConfig.API_KEY, language = "en-US")
 }

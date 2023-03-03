@@ -64,10 +64,8 @@ android {
 }
 
 dependencies {
-
     def appDependencies = rootProject.ext.appDependencies
     def appTestDependencies = rootProject.ext.appTestDependencies
-
 
     implementation appDependencies.kotlin
     implementation appDependencies.coreKtx
@@ -80,10 +78,10 @@ dependencies {
     implementation appDependencies.gson
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverter
-    implementation appDependencies.pagingCompose
     implementation appDependencies.okHttp
     implementation appDependencies.coroutines
     implementation appDependencies.hilt
+    implementation appDependencies.hiltCompose
     kapt appDependencies.kapt
     implementation appDependencies.coil
     implementation appDependencies.material3
@@ -96,6 +94,7 @@ dependencies {
     implementation appDependencies.navigationRuntime
     implementation appDependencies.fragmentKtx
     implementation appDependencies.lifecycleViewModel
+    implementation appDependencies.pagingCompose
     implementation appDependencies.pagingRuntime
     implementation appDependencies.navigationFragmentKtx
     implementation appDependencies.navigationUiKtx
@@ -104,7 +103,6 @@ dependencies {
     implementation appDependencies.appcompat
 
     testImplementation appTestDependencies.jUnit
-
 
     androidTestImplementation appTestDependencies.androidJUnit
     androidTestImplementation appTestDependencies.espresso
