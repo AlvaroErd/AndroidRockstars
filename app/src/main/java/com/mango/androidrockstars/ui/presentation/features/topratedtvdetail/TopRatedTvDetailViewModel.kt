@@ -2,8 +2,8 @@ package com.mango.androidrockstars.ui.presentation.features.topratedtvdetail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mango.androidrockstars.domain.model.TvShowDetail
-import com.mango.androidrockstars.domain.repository.TopRatedTvDetailRepository
+import com.mango.androidrockstars.domain.model.topratedtvdetail.TvShowDetail
+import com.mango.androidrockstars.domain.repository.topratedtvdetail.TopRatedTvDetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

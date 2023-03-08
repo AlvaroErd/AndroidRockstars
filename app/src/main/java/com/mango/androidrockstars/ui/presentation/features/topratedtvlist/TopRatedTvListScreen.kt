@@ -1,7 +1,6 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
 
-import android.content.res.Configuration
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -22,7 +21,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -30,17 +28,15 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
 import com.mango.androidrockstars.R
-import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiDetailResponse
+import com.mango.androidrockstars.domain.model.topratedtvlist.TopRatedTvProperties
 import com.mango.androidrockstars.ui.presentation.components.ProgressIndicator
 import com.mango.androidrockstars.ui.presentation.components.TopBar
-import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 
 @Composable
 fun TopRatedTvListScreen(
     viewModelTvList: TopRatedTvListViewModel,
     onItemClick: (Int) -> Unit
 ) {
-//    val tvListData by viewModelTvList.topRatedTvList.collectAsState()
     val loading = viewModelTvList.loading.value
     Scaffold(
         topBar = {
@@ -54,10 +50,7 @@ fun TopRatedTvListScreen(
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             ProgressIndicator(isDisplayed = loading)
-            ListCards(
-//                tvListData,
-                paddingValues = it, onItemClick = onItemClick
-            )
+            ListCards(paddingValues = it, onItemClick = onItemClick)
         }
     }
 }
@@ -68,7 +61,7 @@ fun ListCards(
     paddingValues: PaddingValues,
     onItemClick: (Int) -> Unit,
 ) {
-    val topRatedTvListItems: LazyPagingItems<ApiDetailResponse> =
+    val topRatedTvListItems: LazyPagingItems<TopRatedTvProperties> =
         topRatedTvListScreenViewModel.topRatedTvPaging.collectAsLazyPagingItems()
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
@@ -93,8 +86,7 @@ fun ListCards(
 
 @Composable
 fun ListItemCard(
-    item: ApiDetailResponse,
-//    item: TopRatedTvProperties,
+    item: TopRatedTvProperties,
     onItemClick: (tvId: Int) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
@@ -105,9 +97,8 @@ fun ListItemCard(
             modifier = Modifier
         ) {
             AsyncImage(
-//                model = item.posterPathList,
-                model = "https://image.tmdb.org/t/p/w500${item.posterPath}",
-                contentDescription = "Poster of ${item.posterPath}",
+                model = item.posterPathList,
+                contentDescription = "Poster of ${item.posterPathList}",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .clip(MaterialTheme.shapes.large)
@@ -187,31 +178,3 @@ fun ListItemCard(
         }
     }
 }
-
-
-// PREVIEW
-@Preview("Light Theme", showBackground = true)
-@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-@Composable
-fun TopRatedTvListScreenBothThemesPreview() {
-    AndroidRockStarsTheme {
-        AndroidRockStarsTheme {
-            Scaffold(
-                topBar = {
-                    TopBar(
-                        title = stringResource(id = R.string.app_name)
-                    )
-                },
-                modifier = Modifier.fillMaxSize(),
-                backgroundColor = Color.DarkGray
-            ) {
-                Box(modifier = Modifier.fillMaxSize()) {
-                    it
-//                    ListCards(topRatedTvListMock, it, ) {
-//                    }
-                }
-            }
-        }
-    }
-}
-

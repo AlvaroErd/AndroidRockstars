@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.domain.model
+package com.mango.androidrockstars.domain.model.topratedtvlist
 
 data class TopRatedTvPage(
     val page: Int = 1,

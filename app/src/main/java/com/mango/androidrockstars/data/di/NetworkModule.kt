@@ -2,14 +2,14 @@ package com.mango.androidrockstars.data.di
 
 import com.mango.androidrockstars.BuildConfig
 import com.mango.androidrockstars.data.remote.ImdbApiService
-import com.mango.androidrockstars.data.repository.TopRatedTvDetailRepositoryImpl
-import com.mango.androidrockstars.data.repository.TopRatedTvListRepositoryImpl
-import com.mango.androidrockstars.data.source.RemoteTopRatedTvDetailDataSource
-import com.mango.androidrockstars.data.source.RemoteTopRatedTvListDataSource
-import com.mango.androidrockstars.data.source.TopRatedTvDetailDataSource
-import com.mango.androidrockstars.data.source.TopRatedTvListDataSource
-import com.mango.androidrockstars.domain.repository.TopRatedTvDetailRepository
-import com.mango.androidrockstars.domain.repository.TopRatedTvListRepository
+import com.mango.androidrockstars.data.repository.topratedtvdetail.TopRatedTvDetailRepositoryImpl
+import com.mango.androidrockstars.data.repository.topratedtvlist.TopRatedTvListRepositoryImpl
+import com.mango.androidrockstars.data.source.remote.topratedtvdetail.RemoteTopRatedTvDetailDataSource
+import com.mango.androidrockstars.data.source.remote.topratedtvlist.RemoteTopRatedTvListDataSource
+import com.mango.androidrockstars.data.source.interfaces.topratedtvdetail.TopRatedTvDetailDataSource
+import com.mango.androidrockstars.data.source.interfaces.topratedtvlist.TopRatedTvListDataSource
+import com.mango.androidrockstars.domain.repository.topratedtvdetail.TopRatedTvDetailRepository
+import com.mango.androidrockstars.domain.repository.topratedtvlist.TopRatedTvListRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

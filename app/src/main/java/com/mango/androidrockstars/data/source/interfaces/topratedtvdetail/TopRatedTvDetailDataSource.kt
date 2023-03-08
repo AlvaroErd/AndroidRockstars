@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.data.source
+package com.mango.androidrockstars.data.source.interfaces.topratedtvdetail
 
 import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiTvDetailResponse
 

@@ -1,7 +1,7 @@
 package com.mango.androidrockstars.data.datasource.features.toprateddetail.remote.mapper
 
 import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiTvDetailResponse
-import com.mango.androidrockstars.domain.model.TvShowDetail
+import com.mango.androidrockstars.domain.model.topratedtvdetail.TvShowDetail
 
 fun tvShowDetailResponseMapper(apiDetail: ApiTvDetailResponse): TvShowDetail {
     return TvShowDetail(

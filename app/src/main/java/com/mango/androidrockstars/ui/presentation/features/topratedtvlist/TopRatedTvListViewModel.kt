@@ -7,10 +7,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiDetailResponse
 import com.mango.androidrockstars.data.remote.pagination.TopRatedTvListPagingSource
 import com.mango.androidrockstars.data.repository.TopRatedTvRepository
-import com.mango.androidrockstars.domain.model.TopRatedTvProperties
+import com.mango.androidrockstars.domain.model.topratedtvlist.TopRatedTvProperties
 import com.mango.androidrockstars.domain.usecase.GetTopRatedTvListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -33,15 +32,11 @@ class TopRatedTvListViewModel @Inject constructor(
         )
     }
 
-//    val topRatedTvList: StateFlow<List<TopRatedTvProperties>>
-//        get() = _topRatedTvList
-
-
     //For manage state of CircularProgressIndicator
     val loading = mutableStateOf(true)
 
     //For Paging
-    val topRatedTvPaging: Flow<PagingData<ApiDetailResponse>> = Pager(PagingConfig(pageSize = 1)) {
+    val topRatedTvPaging: Flow<PagingData<TopRatedTvProperties>> = Pager(PagingConfig(pageSize = 1)) {
         TopRatedTvListPagingSource(topRatedTvRepository)
     }.flow.cachedIn(viewModelScope)
 
@@ -54,17 +49,3 @@ class TopRatedTvListViewModel @Inject constructor(
         }
     }
 }
-
-//Mock
-val topRated1 = TopRatedTvProperties(1, "", "Tv Show 1", 834, 4.5)
-val topRated2 = TopRatedTvProperties(2, "", "Tv Show 2", 342, 3.5)
-val topRated3 = TopRatedTvProperties(3, "", "Tv Show 3", 323, 2.5)
-val topRated4 = TopRatedTvProperties(4, "", "Tv Show 4", 122, 3.1)
-val topRated5 = TopRatedTvProperties(5, "", "Tv Show 5", 111, 2.3)
-val topRated6 = TopRatedTvProperties(6, "", "Tv Show 6", 843, 1.8)
-val topRated7 = TopRatedTvProperties(7, "", "Tv Show 7", 242, 4.3)
-val topRated8 = TopRatedTvProperties(8, "", "Tv Show 8", 657, 2.4)
-
-val topRatedTvListMock = listOf(
-    topRated1, topRated2, topRated3, topRated4, topRated5, topRated6, topRated7, topRated8
-)

@@ -15,6 +15,4 @@ class TopRatedTvRepository @Inject constructor(private val apiService: ImdbApiSe
         page = page,
         language = language
     )
-
-    suspend fun getTvShowDetail(tvId: Int) = apiService.getTopRatedTvDetail(tvId = tvId)
 }

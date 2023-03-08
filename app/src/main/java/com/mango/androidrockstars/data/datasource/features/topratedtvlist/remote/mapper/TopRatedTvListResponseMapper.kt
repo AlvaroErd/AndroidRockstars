@@ -2,8 +2,8 @@ package com.mango.androidrockstars.data.datasource.features.topratedtvlist.remot
 
 import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiDetailResponse
 import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiListResponse
-import com.mango.androidrockstars.domain.model.TopRatedTvPage
-import com.mango.androidrockstars.domain.model.TopRatedTvProperties
+import com.mango.androidrockstars.domain.model.topratedtvlist.TopRatedTvPage
+import com.mango.androidrockstars.domain.model.topratedtvlist.TopRatedTvProperties
 
 
 fun topRatedTvListResponseMapper(apiList: ApiListResponse): TopRatedTvPage {
@@ -15,7 +15,7 @@ fun topRatedTvListResponseMapper(apiList: ApiListResponse): TopRatedTvPage {
     )
 }
 
-private fun topRatedTvListResultsResponseMapper(apiDetail: ApiDetailResponse): TopRatedTvProperties {
+fun topRatedTvListResultsResponseMapper(apiDetail: ApiDetailResponse): TopRatedTvProperties {
     return TopRatedTvProperties(
         name = apiDetail.name,
         id = apiDetail.id,

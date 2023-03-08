@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.data.source
+package com.mango.androidrockstars.data.source.interfaces.topratedtvlist
 
 import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiListResponse
 

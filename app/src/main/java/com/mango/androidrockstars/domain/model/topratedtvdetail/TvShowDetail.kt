@@ -1,4 +1,4 @@
-package com.mango.androidrockstars.domain.model
+package com.mango.androidrockstars.domain.model.topratedtvdetail
 
 data class TvShowDetail(
     val name: String = "",

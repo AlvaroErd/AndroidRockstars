@@ -2,7 +2,6 @@ buildscript {
 
     ext.kotlin_version = '1.7.0'
     ext.hilt_version = '2.35'
-//    ext.hilt_version = '2.44'
 
     repositories {
         google()
@@ -34,6 +33,5 @@ allprojects {
         androidMinSdkVersion = 24
         androidTargetSdkVersion = 33
         androidCompileSdkVersion = 33
-
     }
 }
