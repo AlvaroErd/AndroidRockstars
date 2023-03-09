@@ -21,6 +21,5 @@
         <item name="windowSplashScreenAnimationDuration">2000</item>
         <item name="postSplashScreenTheme">@style/Theme.AndroidRockStars</item>
         <item name="android:windowSplashScreenBrandingImage">@drawable/brand_logo_night</item>
-
     </style>
 </resources>

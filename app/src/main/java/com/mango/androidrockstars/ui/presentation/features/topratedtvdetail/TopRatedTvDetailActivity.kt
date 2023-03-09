@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
+import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import coil.load
+import com.mango.androidrockstars.R
 import com.mango.androidrockstars.databinding.ActivityTopRatedTvDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +34,11 @@ class TopRatedTvDetailActivity : ComponentActivity() {
         val bundle = intent.extras
         tvIdBundle = bundle?.getInt("TV_ID")!!
         topRatedTvDetailViewModel.fetchTvShowDetail(tvIdBundle!!)
+
+        val similarTvCompose = findViewById<ComposeView>(R.id.compose_similar)
+        similarTvCompose.setContent {
+            ListSimilarTvShowCards(items = listOf(), onItemClick = {})
+        }
 
         lifecycleScope.launch(Dispatchers.IO) {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
