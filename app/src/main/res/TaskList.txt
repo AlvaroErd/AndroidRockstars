@@ -1,9 +1,10 @@
-Todo list 03-03-23
+Todo list 08-03-23
 
 Mandatory
-Todo Reconfig List screen to recive data with a clean architecture
+Up to date 😊
 
 Desirable
+Todo Add a LazyRow to show similar tv shows under the detail screen. Endpoint: tv/get-similar-tv-shows
 Todo Pass every string to string resources
 Todo Pass every string resource to another language
 Todo Control the error when there is no internet connection and show a connectivity error
@@ -14,7 +15,6 @@ Todo Insert a typography for the app
 Todo Show TopBar in xml Screens with backStack button (arrow)
 Todo Set up Room
 Todo Add animations
-Todo Add a LazyRow to show similar tv shows under the detail screen. Endpoint: tv/get-similar-tv-shows
 Todo Re-add modules
 Todo Add control states (Loading, Success, Error) linked with the circular progress indicator
 Todo Review the architecture of the project (names in data package is correct?)

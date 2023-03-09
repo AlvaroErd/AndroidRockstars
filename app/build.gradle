@@ -11,6 +11,10 @@ android {
         enabled = true
     }
 
+    dataBinding {
+        android.buildFeatures.dataBinding = true
+    }
+
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
     namespace 'com.mango.androidrockstars'

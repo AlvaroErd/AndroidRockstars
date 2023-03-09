@@ -1,6 +1,5 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
-
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -98,7 +97,7 @@ fun ListItemCard(
         ) {
             AsyncImage(
                 model = item.posterPathList,
-                contentDescription = "Poster of ${item.posterPathList}",
+                contentDescription = stringResource(R.string.poster_image, item.name),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .clip(MaterialTheme.shapes.large)
@@ -132,12 +131,12 @@ fun ListItemCard(
                         )
                         Icon(
                             Icons.Filled.Star,
-                            contentDescription = "Stars",
+                            contentDescription = stringResource(R.string.stars),
                             modifier = Modifier.size(ButtonDefaults.IconSize),
                             tint = colorStar
                         )
                         Text(
-                            text = "of ${item.voteCount} votes",
+                            text = stringResource(R.string.of, item.voteCount, R.string.votes),
                             fontSize = 12.sp,
                             color = MaterialTheme.colors.onPrimary,
 
@@ -161,12 +160,12 @@ fun ListItemCard(
                         )
                         Icon(
                             Icons.Filled.Star,
-                            contentDescription = "Stars",
+                            contentDescription = stringResource(R.string.stars),
                             modifier = Modifier.size(ButtonDefaults.IconSize),
                             tint = colorStar
                         )
                         Text(
-                            text = "of ${item.voteCount} votes",
+                            text = stringResource(R.string.of, item.voteCount, R.string.votes),
                             color = MaterialTheme.colors.onPrimary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
