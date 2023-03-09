@@ -1,11 +1,17 @@
 package com.mango.androidrockstars.domain.usecase
 
 import com.mango.androidrockstars.domain.model.topratedtvdetail.TvShowDetail
+import com.mango.androidrockstars.domain.model.topratedtvlist.TopRatedTvPage
 import com.mango.androidrockstars.domain.repository.topratedtvdetail.TopRatedTvDetailRepository
 import javax.inject.Inject
 
-class GetTopRatedTvDetailUseCase @Inject constructor(private val topDetailRepository: TopRatedTvDetailRepository) :
+class GetTopRatedTvDetailUseCase @Inject constructor(
+    private val topDetailRepository: TopRatedTvDetailRepository
+) :
     TopRatedTvDetailRepository {
     override suspend fun getTopRatedTvDetail(tvId: Int): TvShowDetail =
         topDetailRepository.getTopRatedTvDetail(tvId)
+
+    override suspend fun getTopRatedTvSimilar(tvId: Int): TopRatedTvPage =
+        topDetailRepository.getTopRatedTvSimilar(tvId)
 }

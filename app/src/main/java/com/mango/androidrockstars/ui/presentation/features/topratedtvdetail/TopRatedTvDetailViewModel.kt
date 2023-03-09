@@ -25,6 +25,11 @@ class TopRatedTvDetailViewModel @Inject constructor(
     val tvShowDetail: StateFlow<TvShowDetail>
         get() = _tvTopRatedDetail
 
+    private val _topRatedTvSimilar: MutableStateFlow<List<TopRatedTvProperties>> by lazy {
+        MutableStateFlow(
+            listOf()
+        )
+    }
 
     fun fetchTvShowDetail(tvId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -32,10 +37,14 @@ class TopRatedTvDetailViewModel @Inject constructor(
             _tvTopRatedDetail.update {
                 result
             }
+            this@TopRatedTvDetailViewModel._topRatedTvSimilar.update {
+                topRatedTvRepository.getTopRatedTvSimilar(
+                    tvId
+                ).results
+            }
         }
     }
 }
-
 
 //Mock
 val topRated1 = TopRatedTvProperties(1, "", "Tv Show 1", 834, 4.5)

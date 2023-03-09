@@ -22,4 +22,11 @@ interface ImdbApiService {
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
         @Query("language") language: String = "",
     ): ApiTvDetailResponse
+
+    @GET("tv/{tv_id}/similar")
+    suspend fun getTopRatedTvSimilar(
+        @Path("tv_id") tvId: Int = 1,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+        @Query("language") language: String = "",
+    ): ApiListResponse
 }

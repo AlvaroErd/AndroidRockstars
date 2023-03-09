@@ -157,13 +157,13 @@
                 android:background="@color/androidRockstarsLightGrayStatus"
                 android:visibility="gone" />
 
+            <androidx.compose.ui.platform.ComposeView
+                android:id="@+id/compose_similar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.compose.ui.platform.ComposeView
-            android:id="@+id/compose_similar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
     </ScrollView>
 </layout>
 

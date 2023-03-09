@@ -37,7 +37,7 @@ class TopRatedTvDetailActivity : ComponentActivity() {
 
         val similarTvCompose = findViewById<ComposeView>(R.id.compose_similar)
         similarTvCompose.setContent {
-            ListSimilarTvShowCards(items = listOf(), onItemClick = {})
+            ListSimilarTvShowCards(items = topRatedTvListMock, onItemClick = {})
         }
 
         lifecycleScope.launch(Dispatchers.IO) {
@@ -67,6 +67,7 @@ class TopRatedTvDetailActivity : ComponentActivity() {
                             "${detailId.voteAverage} (${detailId.voteCount} Reviews)"
                         binding.txtRating.contentDescription =
                             ("${detailId.voteAverage} votes of (${detailId.voteCount} Reviews)")
+                        binding.composeSimilar
                     }
                     binding.progressBar.visibility = View.GONE
                 }

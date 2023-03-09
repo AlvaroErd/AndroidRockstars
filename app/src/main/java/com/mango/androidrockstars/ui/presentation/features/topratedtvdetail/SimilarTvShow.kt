@@ -37,17 +37,20 @@ import com.mango.androidrockstars.ui.theme.androidRockstarsLightSurface
 fun ListSimilarTvShowCards(
     items: List<TopRatedTvProperties>, onItemClick: (tvId: Int) -> Unit
 ) {
-    Column() {
-        Text(
-            text = stringResource(R.string.similar_tv_shows),
-            modifier = Modifier.padding(vertical = 5.dp, horizontal = 5.dp),
-            style = MaterialTheme.typography.h6,
-            color = MaterialTheme.colors.onBackground
-        )
-        Spacer(modifier = Modifier.height(5.dp))
-        LazyRow {
-            items(items) { item ->
-                SimilarTvShowCard(item = item, onItemClick = onItemClick)
+    AndroidRockStarsTheme {
+        Column(
+            modifier = Modifier.padding(vertical = 5.dp, horizontal = 12.dp),
+        ) {
+            Text(
+                text = stringResource(R.string.similar_tv_shows),
+                style = MaterialTheme.typography.h6,
+                color = MaterialTheme.colors.onSurface
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            LazyRow {
+                items(items) { item ->
+                    SimilarTvShowCard(item = item, onItemClick = onItemClick)
+                }
             }
         }
     }
@@ -63,7 +66,7 @@ fun SimilarTvShowCard(
         modifier = Modifier
             .height(200.dp)
             .width(150.dp)
-            .padding(5.dp),
+            .padding(end = 7.dp),
         contentAlignment = Alignment.Center
     ) {
         AsyncImage(

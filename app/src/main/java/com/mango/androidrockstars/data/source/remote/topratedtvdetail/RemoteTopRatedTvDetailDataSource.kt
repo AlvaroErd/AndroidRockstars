@@ -2,6 +2,7 @@ package com.mango.androidrockstars.data.source.remote.topratedtvdetail
 
 import com.mango.androidrockstars.BuildConfig
 import com.mango.androidrockstars.data.datasource.features.toprateddetail.model.ApiTvDetailResponse
+import com.mango.androidrockstars.data.datasource.features.topratedtvlist.model.ApiListResponse
 import com.mango.androidrockstars.data.remote.ImdbApiService
 import com.mango.androidrockstars.data.source.interfaces.topratedtvdetail.TopRatedTvDetailDataSource
 import javax.inject.Inject
@@ -12,4 +13,7 @@ class RemoteTopRatedTvDetailDataSource @Inject constructor(
 
     override suspend fun getTopRatedTvDetail(tvId: Int): ApiTvDetailResponse =
         api.getTopRatedTvDetail(tvId = tvId, apiKey = BuildConfig.API_KEY, language = "en-US")
+
+    override suspend fun getTopRatedTvSimilar(tvId: Int): ApiListResponse =
+        api.getTopRatedTvList(apiKey = BuildConfig.API_KEY, page = 1, language = "en-US")
 }
