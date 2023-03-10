@@ -1,15 +1,17 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvdetail
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
-import androidx.compose.ui.platform.ComposeView
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import coil.load
-import com.mango.androidrockstars.R
 import com.mango.androidrockstars.databinding.ActivityTopRatedTvDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +24,7 @@ import kotlinx.coroutines.withContext
 class TopRatedTvDetailActivity : ComponentActivity() {
 
     private val topRatedTvDetailViewModel: TopRatedTvDetailViewModel by viewModels()
+
     private lateinit var binding: ActivityTopRatedTvDetailBinding
     private var tvIdBundle: Int? = 0
 
@@ -35,10 +38,15 @@ class TopRatedTvDetailActivity : ComponentActivity() {
         tvIdBundle = bundle?.getInt("TV_ID")!!
         topRatedTvDetailViewModel.fetchTvShowDetail(tvIdBundle!!)
 
-        val similarTvCompose = findViewById<ComposeView>(R.id.compose_similar)
+        val similarTvCompose = binding.composeSimilar
         similarTvCompose.setContent {
-            ListSimilarTvShowCards(items = topRatedTvListMock, onItemClick = {})
+            val list by topRatedTvDetailViewModel.tvShowSimilar.collectAsState()
+            ListSimilarTvShowCards(similarTvShowListItems = list, onItemClick = { tvId ->
+                this.startActivity(newIntent(tvId, this))
+            }
+            )
         }
+
 
         lifecycleScope.launch(Dispatchers.IO) {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -67,11 +75,18 @@ class TopRatedTvDetailActivity : ComponentActivity() {
                             "${detailId.voteAverage} (${detailId.voteCount} Reviews)"
                         binding.txtRating.contentDescription =
                             ("${detailId.voteAverage} votes of (${detailId.voteCount} Reviews)")
-                        binding.composeSimilar
                     }
                     binding.progressBar.visibility = View.GONE
                 }
             }
+        }
+    }
+
+    companion object {
+        fun newIntent(tvId: Int, context: Context): Intent {
+            val intent = Intent(context, TopRatedTvDetailActivity::class.java)
+            intent.putExtra("TV_ID", tvId)
+            return intent
         }
     }
 }

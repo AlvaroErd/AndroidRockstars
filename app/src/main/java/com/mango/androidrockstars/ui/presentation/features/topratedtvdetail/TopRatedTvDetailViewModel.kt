@@ -25,22 +25,20 @@ class TopRatedTvDetailViewModel @Inject constructor(
     val tvShowDetail: StateFlow<TvShowDetail>
         get() = _tvTopRatedDetail
 
+
     private val _topRatedTvSimilar: MutableStateFlow<List<TopRatedTvProperties>> by lazy {
-        MutableStateFlow(
-            listOf()
-        )
+        MutableStateFlow(listOf())
     }
+
+    val tvShowSimilar: MutableStateFlow<List<TopRatedTvProperties>>
+        get() = _topRatedTvSimilar
 
     fun fetchTvShowDetail(tvId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = topRatedTvRepository.getTopRatedTvDetail(tvId)
-            _tvTopRatedDetail.update {
-                result
-            }
+            _tvTopRatedDetail.update { result }
             this@TopRatedTvDetailViewModel._topRatedTvSimilar.update {
-                topRatedTvRepository.getTopRatedTvSimilar(
-                    tvId
-                ).results
+                topRatedTvRepository.getTopRatedTvSimilar(tvId).results
             }
         }
     }

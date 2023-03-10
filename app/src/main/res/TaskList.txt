@@ -1,10 +1,9 @@
-Todo list 09-03-23
+Todo list 10-03-23
 
 Mandatory
 Up to date 😊
 
 Desirable
-Todo Add a LazyRow to show similar tv shows under the detail screen. Endpoint: tv/get-similar-tv-shows
 Todo Pass every string to string resources
 Todo Pass every string resource to another language
 Todo Control the error when there is no internet connection and show a connectivity error

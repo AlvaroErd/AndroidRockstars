@@ -177,3 +177,27 @@ fun ListItemCard(
         }
     }
 }
+
+/*
+Como con Coil y Jetpack no se pueden mostrar imagenes en la preview, lo que podemos hacer es mostrar
+ un placeholder con una imagen de nuestro repositorio, asi podemos previsualizar la card completa.
+
+.aspectRatio(2 / 3f),
+placeholder = painterResource(R.drawable.wakanda),*/
+
+/*
+Otra manera de crear un mock con datos aleatorios
+
+    val list = mutableListOf<ApiDetailResponse>()
+
+    (0..20).forEach {
+        list.add(
+            ApiDetailResponse(
+                posterPath = "",
+                name = "Tv Show " + "${Random.nextInt(1, 20)}",
+                voteCount = Random.nextInt(20, 700),
+                voteAverage = Random.nextDouble(0.1 * 100, 5.0 * 100).roundToInt() / 100.0,
+            )
+        )
+    }
+*/

@@ -1,6 +1,5 @@
 package com.mango.androidrockstars.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -38,16 +37,11 @@ class MainActivity : ComponentActivity() {
                     )
                     screenSplash.setKeepOnScreenCondition { false }
                 }
-
             }
         }
     }
 
     private fun navigateToDetailActivity(tvId: Int) {
-        val intent = Intent(this, TopRatedTvDetailActivity::class.java)
-        intent.putExtra("TV_ID", tvId)
-        this.startActivity(intent)
-
+        this.startActivity(TopRatedTvDetailActivity.newIntent(tvId, this))
     }
-
 }

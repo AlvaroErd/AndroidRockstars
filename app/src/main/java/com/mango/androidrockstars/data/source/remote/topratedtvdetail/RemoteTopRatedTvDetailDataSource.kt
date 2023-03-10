@@ -15,5 +15,5 @@ class RemoteTopRatedTvDetailDataSource @Inject constructor(
         api.getTopRatedTvDetail(tvId = tvId, apiKey = BuildConfig.API_KEY, language = "en-US")
 
     override suspend fun getTopRatedTvSimilar(tvId: Int): ApiListResponse =
-        api.getTopRatedTvList(apiKey = BuildConfig.API_KEY, page = 1, language = "en-US")
+        api.getTopRatedTvSimilar(tvId = tvId, apiKey = BuildConfig.API_KEY, language = "en-US")
 }

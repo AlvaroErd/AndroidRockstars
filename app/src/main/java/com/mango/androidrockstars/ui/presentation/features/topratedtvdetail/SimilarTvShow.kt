@@ -35,7 +35,7 @@ import com.mango.androidrockstars.ui.theme.androidRockstarsLightSurface
 
 @Composable
 fun ListSimilarTvShowCards(
-    items: List<TopRatedTvProperties>, onItemClick: (tvId: Int) -> Unit
+    similarTvShowListItems: List<TopRatedTvProperties>, onItemClick: (tvId: Int) -> Unit
 ) {
     AndroidRockStarsTheme {
         Column(
@@ -46,9 +46,9 @@ fun ListSimilarTvShowCards(
                 style = MaterialTheme.typography.h6,
                 color = MaterialTheme.colors.onSurface
             )
-            Spacer(modifier = Modifier.height(5.dp))
-            LazyRow {
-                items(items) { item ->
+            Spacer(modifier = Modifier.height(10.dp))
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                items(similarTvShowListItems) { item ->
                     SimilarTvShowCard(item = item, onItemClick = onItemClick)
                 }
             }
@@ -64,9 +64,8 @@ fun SimilarTvShowCard(
     val colorStar = Color(0xFFFBD309)
     Box(
         modifier = Modifier
-            .height(200.dp)
-            .width(150.dp)
-            .padding(end = 7.dp),
+            .height(150.dp)
+            .width(100.dp),
         contentAlignment = Alignment.Center
     ) {
         AsyncImage(
@@ -94,14 +93,20 @@ fun SimilarTvShowCard(
         )
         Text(
             text = item.name,
-            modifier = Modifier.padding(top = 120.dp),
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 35.dp)
+                .align(Alignment.BottomCenter),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             fontWeight = FontWeight.Bold,
             fontSize = 14.sp,
             color = androidRockstarsLightSurface
         )
-        Row(modifier = Modifier.padding(top = 160.dp)) {
+        Row(
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 15.dp)
+                .align(Alignment.BottomCenter),
+        ) {
             Text(
                 text = item.voteAverage.toString(),
                 color = androidRockstarsLightSurface,
@@ -143,6 +148,6 @@ fun SimilarTvShowCardBothThemesPreview() {
 @Composable
 fun ListSimilarTvShowCardsPreview() {
     AndroidRockStarsTheme {
-        ListSimilarTvShowCards(items = topRatedTvListMock, onItemClick = {})
+        ListSimilarTvShowCards(similarTvShowListItems = topRatedTvListMock, onItemClick = {})
     }
 }
