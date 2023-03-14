@@ -136,7 +136,7 @@ fun ListItemCard(
                             tint = colorStar
                         )
                         Text(
-                            text = stringResource(R.string.of, item.voteCount, R.string.votes),
+                            text = "of ${item.voteCount} votes",
                             fontSize = 12.sp,
                             color = MaterialTheme.colors.onPrimary,
 
@@ -165,7 +165,7 @@ fun ListItemCard(
                             tint = colorStar
                         )
                         Text(
-                            text = stringResource(R.string.of, item.voteCount, R.string.votes),
+                            text = "of ${item.voteCount} votes",
                             color = MaterialTheme.colors.onPrimary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
