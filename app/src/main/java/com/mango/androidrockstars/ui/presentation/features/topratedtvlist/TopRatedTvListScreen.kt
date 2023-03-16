@@ -30,6 +30,7 @@ import com.mango.androidrockstars.R
 import com.mango.androidrockstars.domain.model.topratedtvlist.TopRatedTvProperties
 import com.mango.androidrockstars.ui.presentation.components.ProgressIndicator
 import com.mango.androidrockstars.ui.presentation.components.TopBar
+import java.text.DecimalFormat
 
 @Composable
 fun TopRatedTvListScreen(
@@ -90,6 +91,17 @@ fun ListItemCard(
 ) {
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
+    val df = DecimalFormat("#.#")
+    val voteCountFormatted =
+        if (item.voteCount in 1000..999999) "${
+            df.format((item.voteCount / 1000.0)).toString()
+                .replace(',', '.')
+        }k"
+        else if (item.voteCount >= 1000000) "${
+            df.format((item.voteCount / 1000.0)).toString()
+                .replace(',', '.')
+        }M"
+        else "${item.voteCount}"
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Column(
@@ -125,7 +137,7 @@ fun ListItemCard(
                     )
                     Row {
                         Text(
-                            text = item.voteAverage.toString(),
+                            text = item.voteAverage.toString().replace('.', ','),
                             fontSize = 12.sp,
                             color = MaterialTheme.colors.onPrimary
                         )
@@ -136,7 +148,7 @@ fun ListItemCard(
                             tint = colorStar
                         )
                         Text(
-                            text = "of ${item.voteCount} votes",
+                            text = "of $voteCountFormatted votes",
                             fontSize = 12.sp,
                             color = MaterialTheme.colors.onPrimary,
 
@@ -154,7 +166,7 @@ fun ListItemCard(
                     )
                     Row {
                         Text(
-                            text = item.voteAverage.toString(),
+                            text = item.voteAverage.toString().replace('.', ','),
                             color = MaterialTheme.colors.onPrimary,
                             fontSize = 12.sp,
                         )
@@ -165,7 +177,7 @@ fun ListItemCard(
                             tint = colorStar
                         )
                         Text(
-                            text = "of ${item.voteCount} votes",
+                            text = "of $voteCountFormatted votes",
                             color = MaterialTheme.colors.onPrimary,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,

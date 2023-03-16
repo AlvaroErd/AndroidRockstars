@@ -1,4 +1,4 @@
-Todo list 15-03-23
+Todo list 16-03-23
 
 Mandatory
 Up to date 😊
@@ -9,7 +9,6 @@ Todo Pass every string resource to another language
 Todo Control the error when there is no internet connection and show a connectivity error
 Todo Readjust the xml theme
 Todo Create an enum class to refactor original language in detail Screen
-Todo Modify the voteCount number (no . and no more than 1 digit before the coma)
 Todo Insert a typography for the app
 Todo Show TopBar in xml Screens with backStack button (arrow)
 Todo Set up Room

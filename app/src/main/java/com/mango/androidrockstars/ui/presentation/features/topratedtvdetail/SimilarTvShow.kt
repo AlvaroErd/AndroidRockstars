@@ -32,6 +32,7 @@ import com.mango.androidrockstars.R
 import com.mango.androidrockstars.domain.model.topratedtvlist.TopRatedTvProperties
 import com.mango.androidrockstars.ui.theme.AndroidRockStarsTheme
 import com.mango.androidrockstars.ui.theme.androidRockstarsLightSurface
+import java.text.DecimalFormat
 
 @Composable
 fun ListSimilarTvShowCards(
@@ -62,6 +63,7 @@ fun SimilarTvShowCard(
     onItemClick: (tvId: Int) -> Unit,
 ) {
     val colorStar = Color(0xFFFBD309)
+    val df = DecimalFormat("#.#")
     Box(
         modifier = Modifier
             .height(150.dp)
@@ -108,7 +110,7 @@ fun SimilarTvShowCard(
                 .align(Alignment.BottomCenter),
         ) {
             Text(
-                text = item.voteAverage.toString(),
+                text = df.format(item.voteAverage).toString().replace('.', ','),
                 color = androidRockstarsLightSurface,
                 fontSize = 12.sp,
             )

@@ -19,6 +19,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.DecimalFormat
 
 @AndroidEntryPoint
 class TopRatedTvDetailActivity : ComponentActivity() {
@@ -47,12 +48,22 @@ class TopRatedTvDetailActivity : ComponentActivity() {
             )
         }
 
-
         lifecycleScope.launch(Dispatchers.IO) {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 this@TopRatedTvDetailActivity.topRatedTvDetailViewModel.tvShowDetail.collectLatest { detailId ->
                     withContext(Dispatchers.Main)
                     {
+                        val df = DecimalFormat("#.#")
+                        val voteCountFormatted =
+                            if (detailId.voteCount in 1000..999999) "${
+                                df.format((detailId.voteCount / 1000.0)).toString()
+                                    .replace(',', '.')
+                            }k"
+                            else if (detailId.voteCount >= 1000000) "${
+                                df.format((detailId.voteCount / 1000.0)).toString()
+                                    .replace(',', '.')
+                            }M"
+                            else "${detailId.voteCount}"
                         binding.progressBar.visibility = View.VISIBLE
                         delay(600)
                         binding.imgBackgroundTvShow.load(detailId.posterPath)
@@ -72,7 +83,7 @@ class TopRatedTvDetailActivity : ComponentActivity() {
                         binding.txtReleasedDatePlaceholder.contentDescription =
                             (detailId.first_air_date)
                         binding.txtRating.text =
-                            "${detailId.voteAverage} (${detailId.voteCount} Reviews)"
+                            "${df.format(detailId.voteAverage)} ⭐ (${voteCountFormatted} Reviews)"
                         binding.txtRating.contentDescription =
                             ("${detailId.voteAverage} votes of (${detailId.voteCount} Reviews)")
                     }

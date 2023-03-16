@@ -21,4 +21,5 @@
     <color name="androidRockstarsDarkOnPrimary">#FFF0F0F0</color>
     <color name="androidRockstarsDarkBlueStatus">#FF212A33</color>
 
+    <color name="transparent">#00000000</color>
 </resources>
