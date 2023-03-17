@@ -92,16 +92,12 @@ fun ListItemCard(
     val colorStar = Color(0xFFFBD309)
     var showMore by remember { mutableStateOf(false) }
     val df = DecimalFormat("#.#")
-    val voteCountFormatted =
-        if (item.voteCount in 1000..999999) "${
-            df.format((item.voteCount / 1000.0)).toString()
-                .replace(',', '.')
-        }k"
-        else if (item.voteCount >= 1000000) "${
-            df.format((item.voteCount / 1000.0)).toString()
-                .replace(',', '.')
-        }M"
-        else "${item.voteCount}"
+    val voteCountFormatted = if (item.voteCount < 1000)
+        "${item.voteCount}" else "${
+        if (item.voteCount in 1000..999999)
+            df.format((item.voteCount / 1000.0)).toString().replace(',', '.')
+        else df.format((item.voteCount / 1000000.0)).toString().replace(',', '.')
+    }${if (item.voteCount in 1000..999999) "k" else "M"}"
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Column(
@@ -127,63 +123,33 @@ fun ListItemCard(
                         indication = null
                     ) { showMore = !showMore }
             ) {
-                if (showMore) {
+                Text(
+                    text = item.name,
+                    maxLines = if (showMore) Int.MAX_VALUE else 1,
+                    overflow = if (showMore) TextOverflow.Visible else TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(top = 5.dp),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp,
+                    color = MaterialTheme.colors.onPrimary
+                )
+                Row {
                     Text(
-                        text = item.name,
-                        modifier = Modifier.padding(top = 5.dp),
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 14.sp,
+                        text = item.voteAverage.toString().replace('.', ','),
+                        fontSize = 12.sp,
                         color = MaterialTheme.colors.onPrimary
                     )
-                    Row {
-                        Text(
-                            text = item.voteAverage.toString().replace('.', ','),
-                            fontSize = 12.sp,
-                            color = MaterialTheme.colors.onPrimary
-                        )
-                        Icon(
-                            Icons.Filled.Star,
-                            contentDescription = stringResource(R.string.stars),
-                            modifier = Modifier.size(ButtonDefaults.IconSize),
-                            tint = colorStar
-                        )
-                        Text(
-                            text = "of $voteCountFormatted votes",
-                            fontSize = 12.sp,
-                            color = MaterialTheme.colors.onPrimary,
+                    Icon(
+                        Icons.Filled.Star,
+                        contentDescription = stringResource(R.string.stars),
+                        modifier = Modifier.size(ButtonDefaults.IconSize),
+                        tint = colorStar
+                    )
+                    Text(
+                        text = "of $voteCountFormatted votes",
+                        fontSize = 12.sp,
+                        color = MaterialTheme.colors.onPrimary,
 
-                            )
-                    }
-                } else {
-                    Text(
-                        text = item.name,
-                        modifier = Modifier.padding(top = 5.dp),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 14.sp,
-                        color = MaterialTheme.colors.onPrimary
-                    )
-                    Row {
-                        Text(
-                            text = item.voteAverage.toString().replace('.', ','),
-                            color = MaterialTheme.colors.onPrimary,
-                            fontSize = 12.sp,
                         )
-                        Icon(
-                            Icons.Filled.Star,
-                            contentDescription = stringResource(R.string.stars),
-                            modifier = Modifier.size(ButtonDefaults.IconSize),
-                            tint = colorStar
-                        )
-                        Text(
-                            text = "of $voteCountFormatted votes",
-                            color = MaterialTheme.colors.onPrimary,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            fontSize = 12.sp,
-                        )
-                    }
                 }
             }
         }
