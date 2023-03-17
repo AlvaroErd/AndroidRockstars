@@ -16,18 +16,18 @@ The curiosity of this project is that it mixes views and components created with
   
 <h1> // Main characteristics // </h1>
 
-<h2> // Architecture // </h2>
+<h2> Architecture </h2>
 - Clean Arquitecture with 3 layers. Data -> Domain  -> Ui
 - SOLID principies
 - A Jetpack compose component showed in a xml activity
 
-<h2> // Design // </h2>
+<h2> Design </h2>
 - Good loking design! (I hope 😇)
 - Support dark and light theme
 - TopBar indicator with jetpack compose
 - Android icon
 
-<h2> // Libraries // </h2>
+<h2> Libraries </h2>
 - Dependencies gradle file to manage libraries much more easy 
 - <a href="https://developers.themoviedb.org/3/tv/get-top-rated-tv">Tmdb oficial api</a>
 - <a href="https://developer.android.com/jetpack?hl=es-419">Jetpack compose</a> and <a href="https://developer.android.com/develop/ui/views/layout/declaring-layout">classic XML views</a>
@@ -43,7 +43,7 @@ The curiosity of this project is that it mixes views and components created with
 - <a href="https://developer.android.com/topic/libraries/view-binding?hl=es-419">ViewBinding</a>
 - <a href="https://developer.android.com/training/dependency-injection/hilt-android?hl=es-419">Dagger Hilt</a>
 
-<h2> // Others // </h2>
+<h2> Others </h2>
 - Custom mappers between Data and Domain
 - Differents mocks to show the preview with jetpack
 - Circular Progress Indicator (jetpack)when open the app while fetching the data
