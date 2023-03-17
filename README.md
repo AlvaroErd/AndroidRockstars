@@ -15,6 +15,7 @@ The curiosity of this project is that it mixes views and components created with
 <video width="100" src="https://user-images.githubusercontent.com/108676373/225908688-747001a3-0170-45d0-8b33-c4f5d9aebe11.mp4">
 <div/>
 
+<div align="center">
 We have the main characteristics:
 
 - Clean Arquitecture with 3 layers. Data -> Domain  -> Ui
@@ -43,3 +44,5 @@ We have the main characteristics:
 - A Jetpack compose component showed in a xml activity
 - Design with accesibility in mind (every item has a content description and great contrast)
 - Reformat some parameters (like 5300 to 5.3k, 8.9 average votes to 8,9)
+  
+  <div/>
