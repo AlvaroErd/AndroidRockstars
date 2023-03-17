@@ -12,7 +12,7 @@ The curiosity of this project is that it mixes views and components created with
 </p>
 
 <div align="center">
-<video width="150" src="https://user-images.githubusercontent.com/108676373/225908688-747001a3-0170-45d0-8b33-c4f5d9aebe11.mp4">
+<video width="100" src="https://user-images.githubusercontent.com/108676373/225908688-747001a3-0170-45d0-8b33-c4f5d9aebe11.mp4">
 <div/>
 
 We have the main characteristics:
