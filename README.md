@@ -14,7 +14,7 @@ The curiosity of this project is that it mixes views and components created with
 <video width="100" src="https://user-images.githubusercontent.com/108676373/225919734-c3037c9a-3016-4403-9e64-550a5daf412a.mp4">
 </div>
   
-<h1> Main characteristics </h1>
+<h1> // Main characteristics // </h1>
 
 <h2> // Architecture // </h2>
 - Clean Arquitecture with 3 layers. Data -> Domain  -> Ui
