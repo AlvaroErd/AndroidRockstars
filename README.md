@@ -7,7 +7,9 @@ The application brings the data of the top rated tv series from the IMDB api. It
 
 The curiosity of this project is that it mixes views and components created with Jetpack Compose with classic xml views.
 
+<p align="center">
 <img width="200" src="https://user-images.githubusercontent.com/108676373/225890538-d40a1aab-508a-410a-9ded-760854dc6a6f.png"> <img width="200" src="https://user-images.githubusercontent.com/108676373/225890508-7ca544dd-f1f6-42ed-90c9-ca293c42fd0e.png"> <img width="200" src="https://user-images.githubusercontent.com/108676373/225890542-68a15b73-b650-4133-83ed-e2b87231dd0c.png"> <img width="200" src="https://user-images.githubusercontent.com/108676373/225890529-a752e88d-8030-4070-9d51-86d8312289d4.png">
+</p>
 
 We have the main characteristics:
 
