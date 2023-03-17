@@ -12,6 +12,7 @@ The curiosity of this project is that it mixes views and components created with
 ![Screenshot_20230317_111327](https://user-images.githubusercontent.com/108676373/225890538-d40a1aab-508a-410a-9ded-760854dc6a6f.png)
 ![Screenshot_20230317_111406](https://user-images.githubusercontent.com/108676373/225890542-68a15b73-b650-4133-83ed-e2b87231dd0c.png)
 
+<img width="600" src="https://user-images.githubusercontent.com/108676373/225890508-7ca544dd-f1f6-42ed-90c9-ca293c42fd0e.png">
 
 We have the main characteristics:
 
