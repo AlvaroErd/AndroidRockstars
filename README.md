@@ -1,5 +1,4 @@
-# Android Rock Stars
-
+<h1> // Android Rock Stars // </h1>
 
 Repository of my first application. It is an Android app made with Kotlin, clean architecture and MVVM.
 
@@ -15,32 +14,40 @@ The curiosity of this project is that it mixes views and components created with
 <video width="100" src="https://user-images.githubusercontent.com/108676373/225919734-c3037c9a-3016-4403-9e64-550a5daf412a.mp4">
 </div>
   
-We have the main characteristics:
+<h1> Main characteristics </h1>
 
+<h2> // Architecture // </h2>
 - Clean Arquitecture with 3 layers. Data -> Domain  -> Ui
 - SOLID principies
-- Jetpack compose and classics XML views
-- Material design
+- A Jetpack compose component showed in a xml activity
+
+<h2> // Design // </h2>
+- Good loking design! (I hope 😇)
 - Support dark and light theme
-- Custom Splash Screen with animated logo and brand logo
-- Custom mappers between Data and Domain
-- Tmdb oficial api : https://developers.themoviedb.org/3/tv/get-top-rated-tv
-- Infinite scroll with Paging 3.0
-- Retrofit and Gson
-- Coroutines
-- Dependecies Injector with Dagger Hilt
-- Coil
-- StateFlow
-- Navigation compose
-- ViewBinding
-- Differents mocks to show the preview with jetpack
-- Dependencies gradle file to manage libraries much more easy 
+- TopBar indicator with jetpack compose
 - Android icon
-- Good loking design!
+
+<h2> // Libraries // </h2>
+- Dependencies gradle file to manage libraries much more easy 
+- <a href="https://developers.themoviedb.org/3/tv/get-top-rated-tv">Tmdb oficial api</a>
+- <a href="https://developer.android.com/jetpack?hl=es-419">Jetpack compose</a> and <a href="https://developer.android.com/develop/ui/views/layout/declaring-layout">classic XML views</a>
+- <a href="https://m3.material.io/">Material design 3</a>
+- <a href="https://developer.android.com/develop/ui/views/launch/splash-screen">Custom Splash Screen</a> with an <a href="  https://lottiefiles.com/37355-popcorn">animated logo and brand logo</a>
+- Infinite scroll with <a href="https://developer.android.com/topic/libraries/architecture/paging/v3-overview?hl=es-419">Paging 3.0</a>
+- <a href="https://square.github.io/retrofit/">Retrofit</a> and <a href="https://github.com/google/gson">Gson</a>
+- <a href="https://developer.android.com/kotlin/coroutines?hl=es-419">Coroutines</a>
+- Dependecies Injector <a href="https://developer.android.com/training/dependency-injection/hilt-android?hl=es-419">Dagger Hilt</a>
+- <a href="https://coil-kt.github.io/coil/">Coil</a>
+- <a href="https://developer.android.com/kotlin/flow/stateflow-and-sharedflow?hl=es-419">StateFlow</a>
+- <a href="https://developer.android.com/jetpack/compose/navigation?hl=es-419">Navigation compose</a>
+- <a href="https://developer.android.com/topic/libraries/view-binding?hl=es-419">ViewBinding</a>
+- <a href="https://developer.android.com/training/dependency-injection/hilt-android?hl=es-419">Dagger Hilt</a>
+
+<h2> // Others // </h2>
+- Custom mappers between Data and Domain
+- Differents mocks to show the preview with jetpack
 - Circular Progress Indicator (jetpack)when open the app while fetching the data
 . Circular Progress bar (xml) when open the detail screen while fethcing the data
-- TopBar indicator with jetpack compose
-- A Jetpack compose component showed in a xml activity
 - Design with accesibility in mind (every item has a content description and great contrast)
 - Reformat some parameters (like 5300 to 5.3k, 8.9 average votes to 8,9)
  
