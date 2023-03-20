@@ -1,4 +1,4 @@
-Todo list 16-03-23
+Todo list 20-03-23
 
 Mandatory
 Up to date 😊
@@ -15,4 +15,4 @@ Todo Set up Room
 Todo Add animations
 Todo Re-add modules
 Todo Add control states (Loading, Success, Error) linked with the circular progress indicator
-Todo Review the architecture of the project (names in data package is correct?)
+Todo Review the architecture of the project (names and layers are correct?)

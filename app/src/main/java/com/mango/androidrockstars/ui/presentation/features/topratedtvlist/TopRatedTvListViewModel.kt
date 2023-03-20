@@ -49,3 +49,24 @@ class TopRatedTvListViewModel @Inject constructor(
         }
     }
 }
+
+//Mock
+val topRatedMock1 = TopRatedTvProperties(1, "", "Tv Show 1", 834, 4.5)
+val topRatedMock2 = TopRatedTvProperties(2, "", "Tv Show 2", 342, 3.5)
+val topRatedMock3 = TopRatedTvProperties(3, "", "Tv Show 3", 323, 2.5)
+val topRatedMock4 = TopRatedTvProperties(4, "", "Tv Show 4", 122, 3.1)
+val topRatedMock5 = TopRatedTvProperties(5, "", "Tv Show 5", 111, 2.3)
+val topRatedMock6 = TopRatedTvProperties(6, "", "Tv Show 6", 843, 1.8)
+val topRatedMock7 = TopRatedTvProperties(7, "", "Tv Show 7", 242, 4.3)
+val topRatedMock8 = TopRatedTvProperties(8, "", "Tv Show 8", 657, 2.4)
+
+var topRatedTvListMock = listOf(
+    topRatedMock1,
+    topRatedMock2,
+    topRatedMock3,
+    topRatedMock4,
+    topRatedMock5,
+    topRatedMock6,
+    topRatedMock7,
+    topRatedMock8
+)

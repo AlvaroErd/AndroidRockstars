@@ -1,5 +1,6 @@
 package com.mango.androidrockstars.ui.presentation.features.topratedtvlist
 
+import android.content.res.Configuration
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -20,6 +21,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -156,14 +158,29 @@ fun ListItemCard(
     }
 }
 
+@Preview("Light Theme", showBackground = true)
+@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
+@Composable
+fun ListItemCardPreview() {
+    ListItemCard(topRatedMock1) {
+    }
+}
+
+
+/*
+A día 20-03-2022 no se puede mostrar la preview en compose de un LazyColum con Paging 3
+seguir el issue aqui https://issuetracker.google.com/issues/194544557
+/*
+
 /*
 Como con Coil y Jetpack no se pueden mostrar imagenes en la preview, lo que podemos hacer es mostrar
  un placeholder con una imagen de nuestro repositorio, asi podemos previsualizar la card completa.
 
 .aspectRatio(2 / 3f),
 placeholder = painterResource(R.drawable.wakanda),*/
-
 /*
+
+*/
 Otra manera de crear un mock con datos aleatorios
 
     val list = mutableListOf<ApiDetailResponse>()
