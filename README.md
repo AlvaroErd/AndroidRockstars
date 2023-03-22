@@ -17,6 +17,7 @@ The curiosity of this project is that it mixes views and components created with
 <h1> // Main characteristics // </h1>
 
 <h2>🏛️ Architecture 🏛️</h2>
+- Build entirely in Kotlin
 - Clean Arquitecture with 3 layers. Data -> Domain  -> Ui
 - SOLID principies
 - A Jetpack compose component showed in a xml activity
